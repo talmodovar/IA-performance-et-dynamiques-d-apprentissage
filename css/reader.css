@@ -369,6 +369,55 @@
   color: var(--text-secondary);
   margin-top: 1.8em;
   margin-bottom: 0.6em;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Liens cliquables dans le texte de lecture et glossaire */
+.reader-content a:not(.footnote-ref):not(.copy-section-btn):not(.btn-secondary-outline) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  word-break: break-word;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.reader-content a:not(.footnote-ref):not(.copy-section-btn):not(.btn-secondary-outline):hover {
+  color: var(--accent-hover);
+  text-decoration-thickness: 2px;
+}
+
+/* Éléments de figures (annexes & texte) */
+.reader-content .figure-item {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  padding: 10px 16px;
+  background: var(--bg-surface-elevated);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  display: block;
+}
+
+.reader-content .figure-item strong {
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.reader-content .figure-callout {
+  margin: 1.4em 0;
+  padding: 12px 18px;
+  background: var(--bg-surface-elevated);
+  border-left: 4px solid var(--accent-border);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.925rem;
+  font-style: italic;
+  color: var(--text-secondary);
 }
 
 /* Bouton Copier le lien de section */
@@ -392,6 +441,7 @@
 
 .reader-content h2:hover .copy-section-btn,
 .reader-content h3:hover .copy-section-btn,
+.reader-content h4:hover .copy-section-btn,
 .copy-section-btn:focus-visible {
   opacity: 1;
 }

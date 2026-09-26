@@ -140,7 +140,7 @@ function initScrollspy() {
   const tocLinks = document.querySelectorAll('.chapter-toc-link');
   if (tocLinks.length === 0) return;
 
-  const headings = Array.from(document.querySelectorAll('.reader-content h2[id], .reader-content h3[id]'));
+  const headings = Array.from(document.querySelectorAll('.reader-content h2[id], .reader-content h3[id], .reader-content h4[id]'));
   if (headings.length === 0) return;
 
   const observerOptions = {
@@ -177,7 +177,7 @@ function initScrollspy() {
    BOUTON COPIER LE LIEN DIRECT D'UNE SECTION
    ========================================================================== */
 function initCopySectionLinks() {
-  const headings = document.querySelectorAll('.reader-content h2[id], .reader-content h3[id]');
+  const headings = document.querySelectorAll('.reader-content h2[id], .reader-content h3[id], .reader-content h4[id]');
   headings.forEach(heading => {
     const btn = document.createElement('button');
     btn.type = 'button';

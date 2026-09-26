@@ -140,7 +140,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <span>Thomas ALMODOVAR</span>
           </span>
           <span class="chapter-meta-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             <span>École IPSSI — 2025-2026</span>
           </span>
         </div>
@@ -150,7 +150,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       <section class="editorial-chapter-summary" aria-label="Synthèse éditoriale de la partie">
         <div class="summary-heading">
           <span>Points clés du chapitre</span>
-          <span class="summary-badge">Synthèse éditoriale à valider</span>
+          <span class="summary-badge">Synthèse éditoriale</span>
         </div>
         <p>{editorial_summary}</p>
       </section>
@@ -242,8 +242,10 @@ for i, sec in enumerate(sections):
     else:
         for t in toc_items:
             cls = "chapter-toc-link"
-            if t["level"] == 3:
-                sidebar_items.append(f'<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#{t["id"]}" class="{cls}">{html.escape(t["title"])}</a></li>')
+            if t.get("level") == 4:
+                sidebar_items.append(f'<li class="chapter-toc-item" style="padding-left: 20px; font-size: 0.8rem;"><a href="#{t["id"]}" class="{cls}">{html.escape(t["title"])}</a></li>')
+            elif t.get("level") == 3:
+                sidebar_items.append(f'<li class="chapter-toc-item" style="padding-left: 10px;"><a href="#{t["id"]}" class="{cls}">{html.escape(t["title"])}</a></li>')
             else:
                 sidebar_items.append(f'<li class="chapter-toc-item"><a href="#{t["id"]}" class="{cls}">{html.escape(t["title"])}</a></li>')
     sidebar_toc_html = '\n'.join(sidebar_items)
