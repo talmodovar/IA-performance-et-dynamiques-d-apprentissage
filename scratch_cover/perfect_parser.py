@@ -117,6 +117,93 @@ SECTIONS_TOC = {
     ]
 }
 
+# Fichiers images des figures situés dans assets/images/figures/
+FIGURE_ASSETS = {
+    1: "Figure1.png",
+    2: "Figure2.png",
+    3: "Figure3.png",
+    4: "Figure4.png",
+    5: "Figure5.png",
+    6: "Figure6.png",
+    7: "Figure7.png",
+    8: "Figure8.jpg",
+    9: "Figure9.jpg",
+    10: "Figure10.png",
+    11: "Figure11.png",
+    12: "Figure12.png"
+}
+
+# Chapitres d'intégration pour chaque figure
+FIGURE_CHAPTERS = {
+    1: "partie-0", 2: "partie-0", 3: "partie-0",
+    4: "partie-1", 5: "partie-1", 6: "partie-1", 7: "partie-1",
+    8: "partie-2", 9: "partie-2",
+    10: "partie-3", 11: "partie-3", 12: "partie-3"
+}
+
+# Légendes complètes canoniques issues du mémoire
+FIGURE_CAPTIONS = {
+    1: "Top model performance is converging, with 4 companies now clustered within 25 Elo points (inspired by chess ratings) when rated against one another by human voting in the Arena Leaderboard and benchmark. The 2026 AI Index Report",
+    2: "Comment les couleurs sont transformées en couleurs",
+    3: "Comment les couleurs sont transformées en couleurs part2",
+    4: "Résultats de l'enquête FELIX juillet 2026 sur les testeurs de l'outils",
+    5: "Qualité des prévisions météorologiques sur les deux dernières décennies en termes de corrélation des anomalies du géo-potentiel à 500hPa pour l’hémisphère nord, en été (Summer) et en hiver (Winter). Les résultats d’AIFS pour l’année 2023 sont indiqués",
+    6: "University of Pittsburgh, AlphaFold Data Copyright (2022) DeepMind Technologies Limited., 3D visualization of AlphaFold structure prediction for Programmed cell death 1 ligand 1 (PDL1) protein.",
+    7: "Instantané d’un mouvement local incompressible. L’orange indique une rotation angulaire plus rapide ; le bleu sarcelle, une rotation plus lente. La vitesse de circulation dépend aussi du rayon. Les trajectoires montrent une spirale vers l’intérieur et un étirement axial.",
+    8: "Photo de l'auteur août 2025",
+    9: "Photo de l'auteur août 2024",
+    10: "Stanford University, The 2026 AI Index Report, Cumulative Public Spending on AI Contracts in European Countries",
+    11: "LINA, profil d'apprentissage d'un élève",
+    12: "LINA, interface professeur, gestion de la classe"
+}
+
+MONTHS = r'(?:janvier|f[ée]vrier|mars|avril|mai|may|juin|june|juillet|july|ao[ûu]t|august|septembre|september|octobre|october|novembre|november|d[ée]cembre|december)'
+
+# Expression régulière pour découper plusieurs citations de sources présentes dans un même bloc de texte
+RE_SOURCE_SPLIT = re.compile(
+    r'(?<=\S)\s+(?='
+    r'[¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:\s*[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ«"“]|\s*https?:)'
+    r'|'
+    r'(?!(?:[234]D|[48]K|\d+B|\d+(?:e|ème|er|ère|nd|th|rd|st))\b)[1-9]\d?(?=[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ«"“]|https?:)'
+    r'|'
+    r'(?<=[.\?!»\)"\'’])\s*(?!(?:[234]D|[48]K|\d+B|\d+(?:e|ème|er|ère|nd|th|rd|st))\b)[1-9]\d?\s+(?!' + MONTHS + r'\b)(?:[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ«"“]|https?:)'
+    r')'
+)
+
+def is_source_citation(text):
+    """
+    Détermine si une ligne ou un fragment de texte correspond à une citation de source ou note de bas de page.
+    """
+    t = text.strip()
+    if re.match(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰]+', t):
+        return True
+    
+    # Exclusion des nombres ordinaux (10ème, 1er), tailles de modèles (8B, 70B), dimensions (3D, 4K)
+    if re.match(r'^(?:[234]D|[48]K|\d+B|\d+(?:e|ème|er|ère|nd|th|rd|st))\b', t, re.IGNORECASE):
+        return False
+
+    # Exclusion des phrases narratives commençant par un auteur suivi d'un verbe (ex: 1Autor y voit..., 2Fabrice Popineau documente...)
+    if re.match(r'^[1-9]\d?\s*[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇa-z\.\-]+(?:\s+[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇa-z\.\-]+)?\s+[a-z]{1,10}\b', t):
+        if not re.search(r'\b(?:et al\.|Database|Report|Press|arXiv|interview|entretien|conférence)\b', t[:40], re.IGNORECASE) and not re.search(r'[«"“]', t[:40]):
+            return False
+        
+    m = re.match(r'^[1-9]\d?\s*(?:[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ«"“]|https?:)', t)
+    if m:
+        # 1. Contient une URL ou archive
+        if re.search(r'https?://|www\.|arxiv\.org|youtube\.com', t):
+            return True
+        # 2. Citations institutionnelles ou titres directs
+        if re.match(r'^[1-9]\d?\s*(?:[«"“]|Wikipédia|Wikipedia|YouTube|ECMWF|NASA|OpenAI|AlphaFold|Stanford|Union|Université|University|Le Monde|Le Quotidien|Académie|Cnam|École|Classement|Prévisions)', t, re.IGNORECASE):
+            return True
+        # 3. Auteur avec titre entre guillemets ou date de publication
+        if re.search(r'[«"“]', t) and re.search(r'\b(?:19\d\d|20\d\d)\b', t):
+            return True
+        # 4. Termes académiques de citation
+        if re.search(r'\b(?:et al\.|Database|Report|Press|éd\.|vol\.|pp?\.|arXiv|interview|entretien|conférence|webinaire)\b', t, re.IGNORECASE):
+            return True
+            
+    return False
+
 def repair_urls_in_lines(lines):
     """
     Répare les URLs coupées sur deux lignes par l'extraction pypdf.
@@ -134,7 +221,6 @@ def repair_urls_in_lines(lines):
             if m_next:
                 cont = m_next.group(1)
                 rest = m_next.group(2) or ""
-                # Si l'URL se termine par un tiret, un slash, ou si la continuation ressemble à un chemin
                 if url_part.endswith('-') or url_part.endswith('/') or '/' not in url_part[8:] or '.' in cont or '/' in cont:
                     repaired_url = url_part + cont
                     line = line[:m.start(1)] + repaired_url
@@ -149,15 +235,16 @@ def repair_urls_in_lines(lines):
         i += 1
     return new_lines
 
+URL_PATTERN = re.compile(r'((?:https?://|www\.|(?:[a-zA-Z0-9_\-]+\.)+(?:com|org|fr|edu|io|ai|net)/)[^\s<>"\']+[^\s<>"\',;:?!.\)\]])')
+
 def linkify_text(text):
     """
-    Rend cliquables tous les liens HTTP/HTTPS détectés dans le texte avec target="_blank".
+    Rend cliquables tous les liens HTTP/HTTPS ou noms de domaine détectés (ex: youtube.com) avec target="_blank".
     Échappe le texte environnant tout en préservant la ponctuation de fin.
     """
-    pattern = re.compile(r'(https?://[^\s<>"\']+)')
     parts = []
     last_end = 0
-    for m in pattern.finditer(text):
+    for m in URL_PATTERN.finditer(text):
         before = text[last_end:m.start()]
         parts.append(html.escape(before))
         
@@ -167,7 +254,7 @@ def linkify_text(text):
             trailing = raw_url[-1] + trailing
             raw_url = raw_url[:-1]
             
-        href = raw_url
+        href = raw_url if raw_url.startswith(('http://', 'https://')) else f'https://{raw_url}'
         parts.append(f'<a href="{html.escape(href)}" target="_blank" rel="noopener noreferrer">{html.escape(raw_url)}</a>{html.escape(trailing)}')
         last_end = m.end()
     parts.append(html.escape(text[last_end:]))
@@ -177,13 +264,13 @@ def format_section_content_with_headings(sec_id, raw_text):
     """
     Formatte le texte d'une section:
     1. Détection et mise en forme des titres (h2, h3, h4) avec ID uniques
-    2. Formatage des figures (notamment sur la page annexes avec retour à la ligne avant chaque Figure)
-    3. Conversion de tous les liens en liens cliquables target="_blank"
-    4. Formatage des listes, citations et notes
+    2. Intégration des figures avec images réelles et légendes canoniques
+    3. Séparation de chaque source citée sur sa propre ligne avec mise en page dédiée
+    4. Conversion de tous les liens en liens cliquables target="_blank"
     """
     lines = [l.strip() for l in raw_text.splitlines()]
     
-    # 1. Nettoyage des balises de page et numéros isolés
+    # Nettoyage des balises de page et numéros isolés
     filtered = []
     for l in lines:
         if l.startswith('<!-- Page') and l.endswith('-->'):
@@ -192,66 +279,39 @@ def format_section_content_with_headings(sec_id, raw_text):
             continue
         filtered.append(l)
         
-    # 2. Réparation des URLs coupées par les retours à la ligne
     filtered = repair_urls_in_lines(filtered)
     
-    # Table des titres pour sec_id
     toc_items = SECTIONS_TOC.get(sec_id, [])
-    toc_by_clean = {}
-    for item in toc_items:
-        clean = re.sub(r'^[0-9a-z\.\-\–\s\(\)]+\s*', '', item['title']).strip().lower()
-        if clean:
-            toc_by_clean[clean] = item
 
     # Regex pour détection des titres
     RE_H2_NUM = re.compile(r'^(\d+\.\d+)\s+(.+)$')
     RE_H2_PAREN = re.compile(r'^(\d+\))\s+(.+)$')
     RE_H3_ALPHA = re.compile(r'^([a-z]\))\s+(.+)$', re.IGNORECASE)
     RE_H4_SUB = re.compile(r'^([a-z]\.\d+\)?)\s+(.+)$', re.IGNORECASE)
-    RE_FIGURE = re.compile(r'^(Figure\s+\d+[\s\-\,\:])\s*(.*)$', re.IGNORECASE)
+    RE_FIGURE = re.compile(r'^(Figure\s+\d+[\s\-\,\:]*)\s*(.*)$', re.IGNORECASE)
     RE_CONT = re.compile(r'\b(?:sur des|sur|de la|de|du|des|et|et des|vers une|pour|dans|au|aux|un|une|avec|–|-|:)\s*$', re.IGNORECASE)
 
-    # Titres textuels reconnus spécifiquement
     SPECIAL_H2 = [
-        "Genèse et problématique de recherche",
-        "Introduction et problématique",
-        "Bilan et perspectives",
-        "Bilan personnel et perspectives",
-        "Conclusion",
-        "Conclusion générale du mémoire",
-        "Conclusion de la Partie I",
-        "Conclusion de la Partie II",
-        "Conclusion de la Partie III",
-        "Définition des termes utilisés",
-        "Description des abréviations",
-        "Description des abréviations utilisées",
-        "Table des figures",
-        "Table des matières",
-        "Bibliographie / Webographie",
-        "Bibliographie et Webographie annotée",
-        "Rapports institutionnels et études scientifiques",
-        "Ouvrages et articles académiques",
+        "Genèse et problématique de recherche", "Introduction et problématique",
+        "Bilan et perspectives", "Bilan personnel et perspectives", "Conclusion",
+        "Conclusion générale du mémoire", "Conclusion de la Partie I", "Conclusion de la Partie II",
+        "Conclusion de la Partie III", "Définition des termes utilisés", "Description des abréviations",
+        "Description des abréviations utilisées", "Table des figures", "Table des matières",
+        "Bibliographie / Webographie", "Bibliographie et Webographie annotée",
+        "Rapports institutionnels et études scientifiques", "Ouvrages et articles académiques",
         "Webographie et ressources en ligne"
     ]
     SPECIAL_H3 = [
-        "Qu'est-ce que l'IA ?",
-        "IA versus programme informatique classique",
-        "IA versus programme informatique classique :",
-        "Histoire et chronologie de l'IA",
-        "Évolution récente des performances",
-        "Les grands modèles de langage (LLM)",
-        "Les réseaux de neurones convolutifs (CNN)",
-        "L'IA générative au-delà du texte",
-        "L'IA prédictive et analytique",
-        "L'apprentissage par renforcement",
-        "Cas d'usages",
-        "Cas d'usages :",
-        "Une performance réellement augmentée, sous conditions",
+        "Qu'est-ce que l'IA ?", "IA versus programme informatique classique",
+        "IA versus programme informatique classique :", "Histoire et chronologie de l'IA",
+        "Évolution récente des performances", "Les grands modèles de langage (LLM)",
+        "Les réseaux de neurones convolutifs (CNN)", "L'IA générative au-delà du texte",
+        "L'IA prédictive et analytique", "L'apprentissage par renforcement", "Cas d'usages",
+        "Cas d'usages :", "Une performance réellement augmentée, sous conditions",
         "Une performance réellement augmentée, mais sous conditions",
         "Limites, risques et conditions d'une intégration maîtrisée",
         "Limites, risques et conditions d’une intégration maîtrisée",
-        "Réponse finale à la problématique",
-        "Réponse à la problématique et perspectives"
+        "Réponse finale à la problématique", "Réponse à la problématique et perspectives"
     ]
 
     used_ids = set()
@@ -266,12 +326,10 @@ def format_section_content_with_headings(sec_id, raw_text):
         return cand
 
     def find_toc_item(title_text):
-        # 1. Correspondance exacte sur le titre complet
         for it in toc_items:
             if it['title'].lower() == title_text.lower():
                 return it
 
-        # 2. Correspondance sur le préfixe précis avec meilleur chevauchement de mots
         m_p = re.match(r'^([0-9a-z\.\-\–\(\)]+)\s*', title_text, re.IGNORECASE)
         pref = m_p.group(1).lower().rstrip('.)-') if m_p else ''
         clean_text = re.sub(r'^[0-9a-z\.\-\–\s\(\)]+\s*', '', title_text).strip().lower()
@@ -285,7 +343,6 @@ def format_section_content_with_headings(sec_id, raw_text):
             if len(candidates) == 1:
                 return candidates[0]
             elif len(candidates) > 1:
-                # Choisir celui qui a le plus de mots en commun
                 words = set(w for w in clean_text.split() if len(w) > 2)
                 best_it = candidates[0]
                 best_overlap = -1
@@ -298,7 +355,6 @@ def format_section_content_with_headings(sec_id, raw_text):
                         best_it = it
                 return best_it
 
-        # 3. Correspondance sur le texte sans préfixe
         for it in toc_items:
             it_clean = re.sub(r'^[0-9a-z\.\-\–\s\(\)]+\s*', '', it['title']).strip().lower()
             if clean_text == it_clean or (len(clean_text) > 8 and clean_text in it_clean) or (len(it_clean) > 8 and it_clean in clean_text):
@@ -317,16 +373,25 @@ def format_section_content_with_headings(sec_id, raw_text):
         if current_p_lines:
             text = ' '.join(current_p_lines).strip()
             if text:
-                if (text.startswith('«') and text.endswith('»')) or (text.startswith('"') and text.endswith('"')):
-                    blocks.append(f'<blockquote><p>{linkify_text(text)}</p></blockquote>')
-                elif text.startswith('•') or text.startswith('- ') or text.startswith('– '):
-                    items = [it.strip() for it in re.split(r'\n?[•\-\–]\s*', text) if it.strip()]
-                    li_html = ''.join(f'<li>{linkify_text(it)}</li>' for it in items)
-                    blocks.append(f'<ul>{li_html}</ul>')
-                else:
-                    html_content = linkify_text(text)
-                    html_content = re.sub(r'\[(\d+)\]', r'<sup><a href="#note-\1" class="footnote-ref">[\1]</a></sup>', html_content)
-                    blocks.append(f'<p>{html_content}</p>')
+                # Découpage si une ou plusieurs sources sont présentes dans le texte
+                parts = RE_SOURCE_SPLIT.split(text)
+                for part in parts:
+                    p_clean = part.strip()
+                    if not p_clean:
+                        continue
+                    if is_source_citation(p_clean):
+                        html_content = linkify_text(p_clean)
+                        blocks.append(f'<p class="source-citation">{html_content}</p>')
+                    elif (p_clean.startswith('«') and p_clean.endswith('»')) or (p_clean.startswith('"') and p_clean.endswith('"')):
+                        blocks.append(f'<blockquote><p>{linkify_text(p_clean)}</p></blockquote>')
+                    elif p_clean.startswith('•') or p_clean.startswith('- ') or p_clean.startswith('– '):
+                        items = [it.strip() for it in re.split(r'\n?[•\-\–]\s*', p_clean) if it.strip()]
+                        li_html = ''.join(f'<li>{linkify_text(it)}</li>' for it in items)
+                        blocks.append(f'<ul>{li_html}</ul>')
+                    else:
+                        html_content = linkify_text(p_clean)
+                        html_content = re.sub(r'\[(\d+)\]', r'<sup><a href="#note-\1" class="footnote-ref">[\1]</a></sup>', html_content)
+                        blocks.append(f'<p>{html_content}</p>')
             current_p_lines = []
 
     i = 0
@@ -444,16 +509,17 @@ def format_section_content_with_headings(sec_id, raw_text):
             i += 1
             continue
 
-        # Figure detection (annexes ou corps du texte)
-        # Assure un retour à la ligne avant chaque Figure dans les annexes
+        # Détection des Figures (annexes ou corps du texte)
         m_fig = RE_FIGURE.match(line)
         if m_fig:
             flush_p()
             prefix, caption = m_fig.groups()
-            fig_text = f"{prefix} {caption}".strip()
+            m_num = re.search(r'\d+', prefix)
+            fig_num = int(m_num.group(0)) if m_num else None
 
-            # Dans les annexes (Table des figures), grouper les lignes de description associées à cette figure
+            # Dans les annexes (Table des figures)
             if sec_id == "annexes":
+                fig_text = f"{prefix} {caption}".strip()
                 while (i + 1 < len(filtered) and 
                        filtered[i+1] and 
                        not RE_FIGURE.match(filtered[i+1]) and 
@@ -464,15 +530,54 @@ def format_section_content_with_headings(sec_id, raw_text):
                     i += 1
 
                 clean_desc = re.sub(r'^Figure\s+\d+[\s\-\,\:]*\s*', '', fig_text, flags=re.IGNORECASE)
-                clean_prefix = re.sub(r'[\s\-\,\:]+$', '', prefix)
-                linked_desc = linkify_text(clean_desc)
-                blocks.append(f'<p class="figure-item"><strong>{html.escape(clean_prefix)}</strong> — {linked_desc}</p>')
+                clean_desc = re.sub(r'\s*\.{3,}\s*\d+\s*$', '', clean_desc)
+                clean_prefix = f"Figure {fig_num}" if fig_num else prefix.strip(' -:,')
+                canonical = FIGURE_CAPTIONS.get(fig_num, clean_desc)
+                linked_desc = linkify_text(canonical)
+                target_chap = FIGURE_CHAPTERS.get(fig_num, "annexes")
+                link_target = f"{target_chap}.html#fig-{fig_num}" if fig_num else "#"
+                blocks.append(f'<p class="figure-item"><a href="{link_target}"><strong>{html.escape(clean_prefix)}</strong></a> — {linked_desc}</p>')
             else:
-                clean_desc = re.sub(r'^Figure\s+\d+[\s\-\,\:]*\s*', '', fig_text, flags=re.IGNORECASE)
-                clean_prefix = re.sub(r'[\s\-\,\:]+$', '', prefix)
-                linked_desc = linkify_text(clean_desc)
-                blocks.append(f'<p class="figure-callout"><strong>{html.escape(clean_prefix)}</strong> — {linked_desc}</p>')
+                # Dans les chapitres de lecture (partie-0, partie-1, partie-2, partie-3)
+                canonical = FIGURE_CAPTIONS.get(fig_num, caption)
+                words = set(re.findall(r'\w+', canonical.lower()))
+                while i + 1 < len(filtered):
+                    next_l = filtered[i+1].strip()
+                    if not next_l:
+                        break
+                    if re.match(r'^(?:Figure\s+\d+|[a-z]\)|[a-z]\.\d+|\d+\.|\d+\))', next_l, re.IGNORECASE):
+                        break
+                    if any(next_l.lower().startswith(sp.lower().rstrip(':')) for sp in SPECIAL_H2 + SPECIAL_H3):
+                        break
+                    next_words = set(re.findall(r'\w+', next_l.lower()))
+                    overlap = len(words & next_words)
+                    if overlap >= min(3, len(next_words)) and (overlap / max(1, len(next_words)) > 0.4 or next_l.lower() in canonical.lower()):
+                        i += 1
+                    else:
+                        break
 
+                img_file = FIGURE_ASSETS.get(fig_num)
+                clean_prefix = f"Figure {fig_num}" if fig_num else prefix.strip(' -:,')
+                linked_desc = linkify_text(canonical)
+                if img_file:
+                    blocks.append(f'''<figure class="reader-figure-card" id="fig-{fig_num}">
+  <div class="figure-img-container">
+    <img src="../assets/images/figures/{img_file}" alt="{html.escape(clean_prefix)} — {html.escape(canonical)}" class="figure-img" loading="lazy">
+  </div>
+  <figcaption class="figure-caption">
+    <strong>{html.escape(clean_prefix)}</strong> — {linked_desc}
+  </figcaption>
+</figure>''')
+                else:
+                    blocks.append(f'<p class="figure-callout"><strong>{html.escape(clean_prefix)}</strong> — {linked_desc}</p>')
+
+            i += 1
+            continue
+
+        # Citation de source / note isolée
+        if is_source_citation(line):
+            flush_p()
+            current_p_lines.append(line)
             i += 1
             continue
 
