@@ -125,21 +125,21 @@
     <!-- Corps de lecture principal -->
     <main id="main-reading-content" class="reader-content" role="main">
       <header class="chapter-header">
-        <div class="chapter-part-num">Socle conceptuel</div>
+        <div class="chapter-part-num">Partie 0</div>
         <h1 class="chapter-title">Partie 0 — Fondamentaux : Comprendre l&#x27;IA</h1>
-        <p class="chapter-subtitle">Histoire, rupture des transformers, familles technologiques et évolution des performances</p>
+        <p class="chapter-subtitle">Définitions, repères historiques et panorama des architectures</p>
 
         <div class="chapter-meta-row">
           <span class="chapter-meta-pill">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>~8 min de lecture (1 606 mots)</span>
+            <span>~7 min de lecture (1 549 mots)</span>
           </span>
           <span class="chapter-meta-pill">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <span>Thomas ALMODOVAR</span>
           </span>
           <span class="chapter-meta-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <span>École IPSSI — 2025-2026</span>
           </span>
         </div>
@@ -158,17 +158,30 @@
       <article class="chapter-body-text">
         <h2 id="sec-0-1">0.1 Définition et histoire de l&#x27;intelligence artificielle</h2>
 <h3 id="sub-0-1-1">Qu&#x27;est-ce que l&#x27;IA ?</h3>
-<p>L&#x27;Intelligence Artificielle (IA) est un système capable d&#x27;apprendre et d&#x27;adapter son comportement en fonction des expériences. Le système se compose principalement d&#x27;une formule mathématique, qui permet de prédire une réponse en fonction d&#x27;une entrée. Un programme d&#x27;entraînement compare les prédictions de la formule avec la réalité, puis déclenche un ajustement automatique en fonction de la précision des réponses précédentes. On dit que le programme ajuste les paramètres et les poids de la formule mathématique. Plus concrètement : une IA apprend par essai-erreur répétés, exactement comme un enfant. Exemple 1 : Imaginez qu&#x27;on montre à une IA mille photos de chats et de chiens, en lui indiquant à chaque fois : &quot;Ceci est un chat&quot; ou &quot;Ceci est un chien&quot;. À la première photo, l&#x27;IA fait une hypothèse complètement aléatoire : &quot;C&#x27;est... un chien ?&quot; Mais c&#x27;est faux. L&#x27;IA détecte son erreur, puis ajuste légèrement ses paramètres ou poids. À la deuxième photo, elle fait une meilleure hypothèse. À la centième photo, elle commence à reconnaître les oreilles des chats. À la millième, elle atteint une meilleure précision. Plus on lui montre de photos, plus elle devient forte. Exemple 2 : Imaginez qu&#x27;on montre à une IA des milliers de conversations humaines normales. Chaque fois, on lui demande : &quot;Prédis le mot suivant de cette phrase.&quot; On lui présente par exemple : « Bonjour, comment ça... »  À la première tentative, l&#x27;IA fait une hypothèse aléatoire : « Bonjour, comment ça marche ? » Mais la vraie réponse dans la conversation était « va ». C&#x27;est faux. L&#x27;IA détecte son erreur et ajuste ses</p>
-<p>paramètres. À la 10ème tentative sur une phrase similaire, elle prédit mieux. À la 100ème fois qu&#x27;elle voit ce schéma, elle commence à comprendre que « comment ça » est suivi très souvent par « va ». Techniquement, l&#x27;IA contient une formule mathématique complexe avec des milliers ou des millions de réglages internes , les &quot;poids&quot;. Chaque erreur déclenche un calcul mathématique qui ajuste légèrement ces réglages. Ce processus s&#x27;appelle la rétropropagation un système de correction d&#x27;erreurs automatisé qui modifie les poids pour réduire l&#x27;erreur. C&#x27;est cette capacité d&#x27;apprentissage continu, sans qu&#x27;un humain ait à intervenir, qui fait toute la différence avec un programme classique.</p>
+<p>L&#x27;Intelligence Artificielle (IA) est un système capable d&#x27;apprendre et d&#x27;adapter son comportement en fonction des expériences. Le système se compose principalement d&#x27;une formule mathématique, qui permet de prédire une réponse en fonction d&#x27;une entrée.</p>
+<p>Un programme d&#x27;entraînement compare les prédictions de la formule avec la réalité, puis déclenche un ajustement automatique en fonction de la précision des réponses précédentes. On dit que le programme ajuste les paramètres et les poids de la formule mathématique.</p>
+<p>Plus concrètement : une IA apprend par essai-erreur répétés, exactement comme un enfant.</p>
+<p>Exemple 1 :</p>
+<p>Imaginez qu&#x27;on montre à une IA mille photos de chats et de chiens, en lui indiquant à chaque fois : &quot;Ceci est un chat&quot; ou &quot;Ceci est un chien&quot;. À la première photo, l&#x27;IA fait une hypothèse complètement aléatoire : &quot;C&#x27;est... un chien ?&quot; Mais c&#x27;est faux. L&#x27;IA détecte son erreur, puis ajuste légèrement ses paramètres ou poids. À la deuxième photo, elle fait une meilleure hypothèse. À la centième photo, elle commence à reconnaître les oreilles des chats. À la millième, elle atteint une meilleure précision. Plus on lui montre de photos, plus elle devient forte.</p>
+<p>Exemple 2 :</p>
+<p>Imaginez qu&#x27;on montre à une IA des milliers de conversations humaines normales. Chaque fois, on lui demande : &quot;Prédis le mot suivant de cette phrase.&quot;</p>
+<p>On lui présente par exemple : « Bonjour, comment ça... » À la première tentative, l&#x27;IA fait une hypothèse aléatoire : « Bonjour, comment ça marche ? » Mais la vraie réponse dans la conversation était « va ». C&#x27;est faux. L&#x27;IA détecte son erreur et ajuste ses paramètres. À la 10ème tentative sur une phrase similaire, elle prédit mieux. À la 100ème fois qu&#x27;elle voit ce schéma, elle commence à comprendre que « comment ça » est suivi très souvent par « va ».</p>
+<p>Techniquement, l&#x27;IA contient une formule mathématique complexe avec des milliers ou des millions de réglages internes, les &quot;poids&quot;. Chaque erreur déclenche un calcul mathématique qui ajuste légèrement ces réglages. Ce processus s&#x27;appelle la rétropropagation un système de correction d&#x27;erreurs automatisé qui modifie les poids pour réduire l&#x27;erreur.</p>
+<p>C&#x27;est cette capacité d&#x27;apprentissage continu, sans qu&#x27;un humain ait à intervenir, qui fait toute la différence avec un programme classique.</p>
 <h3 id="sub-0-1-2">IA versus programme informatique classique</h3>
-<p>Un programme informatique classique repose sur une logique déterministe : le développeur définit, en amont, un ensemble de règles et d&#x27;instructions précises que la machine doit suivre pour chaque situation possible. Chaque étape du raisonnement est explici te, codée noir sur blanc, et le programme se contente de l&#x27;exécuter fidèlement. Ainsi, pour une même donnée en entrée, le résultat produit sera toujours strictement identique. C&#x27;est le cas, par exemple, d&#x27;un logiciel de déclaration d&#x27;impôts : celui-ci appl ique mécaniquement des formules et des seuils fixés par la loi pour calculer un montant, sans jamais dévier de la règle programmée. L&#x27;intelligence artificielle, à l&#x27;inverse, ne suit pas de règles préétablies : elle apprend à partir de données, en repérant des régularités, pour produire des résultats par elle - même, selon une logique probabiliste plutôt que strictement logique.</p>
+<p>Un programme informatique classique repose sur une logique déterministe : le développeur définit, en amont, un ensemble de règles et d&#x27;instructions précises que la machine doit suivre pour chaque situation possible. Chaque étape du raisonnement est explicite, codée noir sur blanc, et le programme se contente de l&#x27;exécuter fidèlement. Ainsi, pour une même donnée en entrée, le résultat produit sera toujours strictement identique. C&#x27;est le cas, par exemple, d&#x27;un logiciel de déclaration d&#x27;impôts : celui-ci applique mécaniquement des formules et des seuils fixés par la loi pour calculer un montant, sans jamais dévier de la règle programmée.</p>
+<p>L&#x27;intelligence artificielle, à l&#x27;inverse, ne suit pas de règles préétablies : elle apprend à partir de données, en repérant des régularités, pour produire des résultats par elle-même, selon une logique probabiliste plutôt que strictement logique.</p>
 <h3 id="sub-0-1-3">Histoire et chronologie de l&#x27;IA</h3>
-<p>Les premières recherches importantes commencent dans les années 1950 . Alan Turing se demande si une machine peut imiter l’intelligence humaine. Les premiers programmes savent résoudre des problèmes de logique, jouer aux échecs ou traduire des phrases simples. Ils fonctionnent grâce à des règles programmées à l’avance : « si ceci se produit, alors faire cela ». Dans les années 1970 et 1980, les systèmes experts apparaissent. Ils reproduisent les connaissances d’un spécialiste. Par exemple, le système médical MYCIN pouvait</p>
-<p>assister les médecins dans le diagnostic et le traitement des maladies infectieuses du sang. Dans l’industrie, d’autres systèmes permettaient de trouver l’origine d’une panne en posant des questions sur une machine. Ces systèmes restaient cependant limités, car ils ne savaient pas réellement apprendre seuls. À partir des années 1990 et 2000 , l’IA progresse grâce à des ordinateurs plus puissants. L’apprentissage automatique permet aux machines d’apprendre à partir d’exemples. Par exemple, des réseaux de neurones ont été utilisés pour reconnaître automatiquement des chiffres manuscrits sur des chèques ou des codes postaux. (Article du National Library of Médicine, site du gouvernement américain  : pubmed.ncbi.nlm.nih.gov)1. En 1997, l’ordinateur Deep Blue bat le champion d’échecs Garry Kasparov. Depuis les années 2010, les réseaux de neurones artificiels permettent de grandes avancées. Ils analysent les informations en plusieurs étapes : une IA peut ainsi repérer des formes dans une image, puis reconnaître un objet. (Des chercheurs testent un comptage automatisé de poisson via IA, lemag)2. Elle est aussi  utilisée pour la traduction automatique, les assistants vocaux, les recommandations de vidéos et l’aide au diagnostic médical. Aujourd’hui, les IA génératives peuvent créer du texte, des images, de la musique ou du code. Les recherches portent notamment sur les IA capables d’effectuer plusieurs étapes seules, par exemple rechercher des informations, utiliser un logiciel ou aider à programmer. En France et en Europe, des acteurs comme Mistral AI, Hugging Face, Inria, le CNRS et le CEA participent à leur développement. L’Union européenne a également mis en place l’ AI Act, un règlement qui encadre l’utilisation de l’IA selon son niveau de risque. Il vise notamment à protéger les citoyens, renforcer la transparence et interdire certaines pratiques dangereuses3.</p>
-<p class="source-citation">1S. Knerr, L. Personnaz, G. Dreyfus, “Handwritten digit recognition by neural networks with single -layer training” , 30 November 1992 <a href="https://ieeexplore.ieee.org/document/165597" target="_blank" rel="noopener noreferrer">https://ieeexplore.ieee.org/document/165597</a></p>
+<p>Les premières recherches importantes commencent dans les années 1950. Alan Turing se demande si une machine peut imiter l’intelligence humaine. Les premiers programmes savent résoudre des problèmes de logique, jouer aux échecs ou traduire des phrases simples. Ils fonctionnent grâce à des règles programmées à l’avance : « si ceci se produit, alors faire cela ».</p>
+<p>Dans les années 1970 et 1980, les systèmes experts apparaissent. Ils reproduisent les connaissances d’un spécialiste. Par exemple, le système médical MYCIN pouvait assister les médecins dans le diagnostic et le traitement des maladies infectieuses du sang. Dans l’industrie, d’autres systèmes permettaient de trouver l’origine d’une panne en posant des questions sur une machine. Ces systèmes restaient cependant limités, car ils ne savaient pas réellement apprendre seuls.</p>
+<p>À partir des années 1990 et 2000, l’IA progresse grâce à des ordinateurs plus puissants. L’apprentissage automatique permet aux machines d’apprendre à partir d’exemples. Par exemple, des réseaux de neurones ont été utilisés pour reconnaître automatiquement des chiffres manuscrits sur des chèques ou des codes postaux. (Article du National Library of Médicine, site du gouvernement américain : pubmed.ncbi.nlm.nih.gov)1. En 1997, l’ordinateur Deep Blue bat le champion d’échecs Garry Kasparov.</p>
+<p>Depuis les années 2010, les réseaux de neurones artificiels permettent de grandes avancées. Ils analysent les informations en plusieurs étapes : une IA peut ainsi repérer des formes dans une image, puis reconnaître un objet. (Des chercheurs testent un comptage automatisé de poisson via IA, lemag)2. Elle est aussi utilisée pour la traduction automatique, les assistants vocaux, les recommandations de vidéos et l’aide au diagnostic médical.</p>
+<p>Aujourd’hui, les IA génératives peuvent créer du texte, des images, de la musique ou du code. Les recherches portent notamment sur les IA capables d’effectuer plusieurs étapes seules, par exemple rechercher des informations, utiliser un logiciel ou aider à programmer. En France et en Europe, des acteurs comme Mistral AI, Hugging Face, Inria, le CNRS et le CEA participent à leur développement.</p>
+<p>L’Union européenne a également mis en place l’AI Act, un règlement qui encadre l’utilisation de l’IA selon son niveau de risque. Il vise notamment à protéger les citoyens, renforcer la transparence et interdire certaines pratiques dangereuses3.</p>
+<p class="source-citation">1S. Knerr, L. Personnaz, G. Dreyfus, “Handwritten digit recognition by neural networks with single-layer training”, 30 November 1992 <a href="https://ieeexplore.ieee.org/document/165597" target="_blank" rel="noopener noreferrer">https://ieeexplore.ieee.org/document/165597</a></p>
 <p class="source-citation">2Le MAG, Olivier Blot, “IA et caméras pour compter les poissons des grands fonds”, 09/06/2025, <a href="https://lemag.ird.fr/fr/ia-et-cameras-pour-compter-les-poissons-des-grands-fonds" target="_blank" rel="noopener noreferrer">https://lemag.ird.fr/fr/ia-et-cameras-pour-compter-les-poissons-des-grands-fonds</a></p>
-<p class="source-citation">3European Comission,  30 July 2024,  “AI Act”  <a href="https://digital-strategy.ec.europa.eu/en/factpages/ai-act" target="_blank" rel="noopener noreferrer">https://digital-strategy.ec.europa.eu/en/factpages/ai-act</a></p>
-<p>Evolution récente des performances</p>
+<p class="source-citation">3European Comission, 30 July 2024, “AI Act” <a href="https://digital-strategy.ec.europa.eu/en/factpages/ai-act" target="_blank" rel="noopener noreferrer">https://digital-strategy.ec.europa.eu/en/factpages/ai-act</a></p>
+<h4 id="sec-evolution-r-cente-des-performances">Evolution récente des performances</h4>
 <figure class="reader-figure-card" id="fig-1">
   <div class="figure-img-container">
     <img src="../assets/images/figures/Figure1.png" alt="Figure 1 — Top model performance is converging, with 4 companies now clustered within 25 Elo points (inspired by chess ratings) when rated against one another by human voting in the Arena Leaderboard and benchmark. The 2026 AI Index Report" class="figure-img" loading="lazy">
@@ -180,10 +193,9 @@
 <p>Les performances des modèles d’IA ont fortement augmenté au cours de ces 3 dernières années. Les plus performants se sont fortement rapprochés au sommet du classement Arena : alors qu’OpenAI dominait nettement au début de 2023, l’écart s’est réduit avec les autres acteurs. Le score Arena correspond à une note obtenue grâce à des comparaisons entre modèles : des utilisateurs évaluent les réponses produites par plusieurs IA, puis un système de classement inspiré des échecs attribue davantage de points aux modèles qui remportent le plus souvent ces confrontations.</p>
 <h2 id="sec-0-2">0.2 Panorama des grandes familles de technologies IA</h2>
 <h3 id="sub-0-2-1">Les grands modèles de langage (LLM)</h3>
-<p>Un LLM (Large Language Model) applique le schéma décrit précédemment, chaque mot est converti en tokens, puis en nombre¹. Ces nombres traversent une architecture Transformer comportant plusieurs milliards de paramètres, qui produit en sortie une</p>
-<p>prédiction du token suivant le plus probable. L&#x27;apprentissage se fait sur de la donnée issue d&#x27;ouvrages, d&#x27;articles et de contenus web. ChatGPT (OpenAI), Claude (Anthropic) et Mistral (Mistral AI) sont des LLM.</p>
+<p>Un LLM (Large Language Model) applique le schéma décrit précédemment, chaque mot est converti en tokens, puis en nombre¹. Ces nombres traversent une architecture Transformer comportant plusieurs milliards de paramètres, qui produit en sortie une prédiction du token suivant le plus probable. L&#x27;apprentissage se fait sur de la donnée issue d&#x27;ouvrages, d&#x27;articles et de contenus web. ChatGPT (OpenAI), Claude (Anthropic) et Mistral (Mistral AI) sont des LLM.</p>
 <h3 id="sub-0-2-2">Les réseaux de neurones convolutifs (CNN)</h3>
-<p>Le Convolutional Neural Network s&#x27;applique à l&#x27;image , chaque pixel devient une valeur numérique  (matrice RGB )1,2, qui traverse des couches de convolution détectant d&#x27;abord des motifs simples (contours, formes) puis des éléments plus complexes (yeux, oreilles, objets), pour aboutir à une prédiction. Ces modèles équipent aujourd&#x27;hui la reconnaissance faciale, le diagnostic médical par imagerie ou la détection d&#x27;objets pour les véhicules autonomes.</p>
+<p>Le Convolutional Neural Network s&#x27;applique à l&#x27;image, chaque pixel devient une valeur numérique (matrice RGB)1,2, qui traverse des couches de convolution détectant d&#x27;abord des motifs simples (contours, formes) puis des éléments plus complexes (yeux, oreilles, objets), pour aboutir à une prédiction. Ces modèles équipent aujourd&#x27;hui la reconnaissance faciale, le diagnostic médical par imagerie ou la détection d&#x27;objets pour les véhicules autonomes.</p>
 <figure class="reader-figure-card" id="fig-2">
   <div class="figure-img-container">
     <img src="../assets/images/figures/Figure2.png" alt="Figure 2 — Comment les couleurs sont transformées en couleurs" class="figure-img" loading="lazy">
@@ -201,17 +213,68 @@
   </figcaption>
 </figure>
 <h3 id="sub-0-2-3">L&#x27;IA générative au-delà du texte</h3>
-<p>Les modèles de diffusion  (DALL-E, Midjourney, Stable Diffusion) suivent la même logique, une description textuelle est convertie en tokens, qui guident la génération d&#x27;une image ou audio. Sur l&#x27;audio, deux directions existent : la synthèse vocale (texte</p>
-<p>→ voix , ex. Google Assistant) et la transcription  (voix → texte , ex. Whisper d&#x27;OpenAI²).</p>
+<p>Les modèles de diffusion (DALL-E, Midjourney, Stable Diffusion) suivent la même logique, une description textuelle est convertie en tokens, qui guident la génération d&#x27;une image ou audio. Sur l&#x27;audio, deux directions existent : la synthèse vocale (texte → voix, ex. Google Assistant) et la transcription (voix → texte, ex. Whisper d&#x27;OpenAI²).</p>
 <h3 id="sub-0-2-4">L&#x27;IA prédictive et analytique</h3>
 <p>Ces modèles de prédictions prédisent une valeur numérique à partir de patterns historiques. La prévision météorologique illustre bien la puissance de cette approche : le modèle GraphCast de DeepMind, entraîné sur quatre décennies de données météorologiques, prédit désormais les températures, la trajectoire des cyclones et les événements extrêmes sur 10 jours en moins d&#x27;une minute.</p>
 <h3 id="sub-0-2-5">L&#x27;apprentissage par renforcement</h3>
 <p>Le Reinforcement Learning n&#x27;a pas de données à l&#x27;avance, le modèle apprend par essai-erreur, guidé par un système de récompense/pénalité. C&#x27;est ce principe qui a permis à AlphaGo d&#x27;apprendre le jeu de Go en s&#x27;affrontant lui-même³.</p>
 <p class="source-citation">1Brandon Rohrer, “How to Convert a Picture to Numbers”, November 13 2019, <a href="https://brandonrohrer.com/images_to_numbers.html" target="_blank" rel="noopener noreferrer">https://brandonrohrer.com/images_to_numbers.html</a></p>
-<p class="source-citation">2Wikipédia, “Whisper (système de reconnaissance vocale)” , 13 mai 2026, <a href="https://fr.wikipedia.org/wiki/Whisper_(syst%C3%A8me_de_reconnaissance_vocale" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Whisper_(syst%C3%A8me_de_reconnaissance_vocale</a>)</p>
-<p class="source-citation">3Wikipédia, AlphaGo&quot;, 22 mars 2026,  <a href="https://fr.wikipedia.org/wiki/AlphaGo" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/AlphaGo</a></p>
+<p class="source-citation">2Wikipédia, “Whisper (système de reconnaissance vocale)”, 13 mai 2026, <a href="https://fr.wikipedia.org/wiki/Whisper_(syst%C3%A8me_de_reconnaissance_vocale" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Whisper_(syst%C3%A8me_de_reconnaissance_vocale</a>)</p>
+<p class="source-citation">3Wikipédia, AlphaGo&quot;, 22 mars 2026, <a href="https://fr.wikipedia.org/wiki/AlphaGo" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/AlphaGo</a></p>
 <h3 id="sub-0-2-6">Cas d&#x27;usages</h3>
-<p>Secteur Type d&#x27;IA Exemple Santé &amp; sciences CNN / IA prédictive Diagnostic médical assisté par imagerie, détection de cancers Santé &amp; sciences Deep learning (réseaux de neurones) Découverte de médicament, AlphaFold (DeepMind) : prédiction de structures protéiques Finance &amp; assurance IA prédictive/analytique Détection de fraude, scoring en temps réel des transactions bancaires Finance &amp; assurance Reinforcement Learning Trading, a justement dynamique de portefeuilles selon les signaux de marché Industrie &amp; logistique IA prédictive Maintenance, anticipation des pannes machines à partir de capteurs IoT Météorologie IA prédictive (deep learning) Prévision climatique, GraphCast (DeepMind) : prévision de température à 10 jours Entreprises &amp; services LLM / agents IA Automatisation, Mistral AI : ingénieurs qui « managent des agents IA »4 Créatif &amp; médias Modèles de diffusion Génération d’image, Midjourney, DALL-E pour la production visuelle</p>
+<div class="table-container">
+  <table class="reader-table">
+    <thead>
+      <tr>
+        <th>Secteur</th>
+        <th>Type d&#x27;IA</th>
+        <th>Exemple</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Santé &amp; sciences</td>
+        <td>CNN / IA prédictive</td>
+        <td>Diagnostic médical assisté par imagerie, détection de cancers</td>
+      </tr>
+      <tr>
+        <td>Santé &amp; sciences</td>
+        <td>Deep learning (réseaux de neurones)</td>
+        <td>Découverte de médicament, AlphaFold (DeepMind) : prédiction de structures protéiques</td>
+      </tr>
+      <tr>
+        <td>Finance &amp; assurance</td>
+        <td>IA prédictive/analytique</td>
+        <td>Détection de fraude, scoring en temps réel des transactions bancaires</td>
+      </tr>
+      <tr>
+        <td>Finance &amp; assurance</td>
+        <td>Reinforcement Learning</td>
+        <td>Trading, ajustement dynamique de portefeuilles selon les signaux de marché</td>
+      </tr>
+      <tr>
+        <td>Industrie &amp; logistique</td>
+        <td>IA prédictive</td>
+        <td>Maintenance, anticipation des pannes machines à partir de capteurs IoT</td>
+      </tr>
+      <tr>
+        <td>Météorologie</td>
+        <td>IA prédictive (deep learning)</td>
+        <td>Prévision climatique, GraphCast (DeepMind) : prévision de température à 10 jours</td>
+      </tr>
+      <tr>
+        <td>Entreprises &amp; services</td>
+        <td>LLM / agents IA</td>
+        <td>Automatisation, Mistral AI : ingénieurs qui « managent des agents IA »4</td>
+      </tr>
+      <tr>
+        <td>Créatif &amp; médias</td>
+        <td>Modèles de diffusion</td>
+        <td>Génération d’image, Midjourney, DALL-E pour la production visuelle</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <p class="source-citation">4 Youtube LCP, Assemblée nationale, Arthur Mensch, audition Assemblée nationale, 12/05/2026, <a href="https://www.youtube.com/watch?v=kKWOkWv6pJM" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=kKWOkWv6pJM</a></p>
       </article>
 
@@ -225,7 +288,6 @@
             <span>Partie précédente</span>
           </span>
           <span class="chapter-nav-title">Introduction et problématique</span>
-          <span class="chapter-nav-time">~3 min de lecture</span>
         </a>
         
           
@@ -235,7 +297,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           </span>
           <span class="chapter-nav-title">Partie I — L&#x27;IA comme levier d&#x27;augmentation de la performance</span>
-          <span class="chapter-nav-time">~43 min de lecture</span>
         </a>
         
         </div>

@@ -940,3 +940,109 @@ body.zen-mode .reader-toolbar-inner {
     margin-top: 2em;
   }
 }
+
+/* ==========================================================================
+   Tableaux intégrés (Partie 0, 2, 3, Glossaire)
+   ========================================================================== */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.reader-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.reader-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--accent);
+  white-space: nowrap;
+}
+
+.reader-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.reader-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reader-table tbody tr:hover td {
+  background: rgba(var(--accent-rgb, 59, 130, 246), 0.04);
+}
+
+/* ==========================================================================
+   Citations de sources & Notes de bas de page (ligne dédiée)
+   ========================================================================== */
+
+.reader-content .source-citation {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0.6rem 0;
+  padding: 8px 14px;
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  word-break: break-word;
+}
+
+.reader-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.reader-content a:hover {
+  color: var(--accent-hover);
+  text-decoration-thickness: 2px;
+}
+
+.reader-content .source-citation a {
+  color: var(--accent);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.reader-content .source-citation a:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Entrées du Glossaire & Cartes Bibliographiques
+   ========================================================================== */
+
+.reader-content .glossary-entry {
+  margin-bottom: 0.85rem;
+  padding: 10px 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.reader-content .glossary-entry strong {
+  color: var(--accent);
+  font-weight: 700;
+}
