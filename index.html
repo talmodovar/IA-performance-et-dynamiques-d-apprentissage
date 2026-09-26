@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L’impact de l’IA sur la performance et les dynamiques d’apprentissage | Thomas ALMODOVAR</title>
+  <meta name="description"
+    content="Site de publication universitaire du mémoire de recherche de Thomas ALMODOVAR (École IPSSI - Mastère Dev, Data & IA, 2025-2026). Téléchargement PDF et lecture intégrale partie par partie.">
+  <meta name="author" content="Thomas ALMODOVAR">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Meta de partage -->
+  <meta property="og:title" content="L’impact de l’IA sur la performance et les dynamiques d’apprentissage">
+  <meta property="og:description"
+    content="Dans quelle mesure l’intégration de l’intelligence artificielle permet-elle d’améliorer la performance et les dynamiques d’apprentissage ? Mémoire de Thomas ALMODOVAR.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/couverture_memoire.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Lien d'évitement WCAG -->
+  <a href="#hero-heading" class="skip-link">Passer directement au titre du mémoire</a>
+  <a href="#sommaire" class="skip-link">Passer au sommaire général</a>
+
+  <!-- En-tête principal -->
+  <header class="site-header" role="banner">
+    <div class="container site-header-inner">
+      <a href="index.html" class="brand" aria-label="Accueil de la publication">
+        <span class="brand-badge">Mémoire de recherche</span>
+        <span>Thomas ALMODOVAR</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="#presentation" class="nav-link">Présentation</a>
+        <a href="#axes-cles" class="nav-link">Axes de réflexion</a>
+        <a href="#sommaire" class="nav-link">Sommaire</a>
+        <a href="#a-propos" class="nav-link">À propos &amp; Notice</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-download-header"
+          title="Consulter le mémoire complet au format PDF dans un nouvel onglet">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          <span>Consulter le PDF en ligne</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false"
+          aria-label="Ouvrir le menu de navigation sur mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bandeau de reprise de lecture (s'affiche dynamiquement si session active en localStorage) -->
+  <aside class="resume-banner" id="resumeBanner" aria-label="Reprise de lecture mémorisée">
+    <div class="container resume-banner-inner">
+      <div class="resume-banner-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 14 14" />
+        </svg>
+        <span>Vous avez une lecture en cours : <strong><span id="resumeChapterTitle">Chapitre</span></strong></span>
+      </div>
+      <a href="lecture/introduction.html" class="resume-banner-link" id="resumeBannerLink">
+        <span>Reprendre ma lecture</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Section d'ouverture avec vidéo (Hero immersif) -->
+  <section class="hero-editorial" aria-label="Ouverture du mémoire">
+    <div class="hero-media-wrapper">
+      <video class="hero-video" id="heroVideo" autoplay loop muted defaultmuted playsinline preload="auto"
+        poster="assets/video/video_poster.jpg">
+        <source src="assets/video/video_arriere_plan.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la vidéo en arrière-plan.
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-supertitle">
+          <span class="hero-supertitle-dot" aria-hidden="true"></span>
+          <span>Mémoire de recherche • Mastère Dev, Data &amp; I.A</span>
+        </div>
+
+        <h1 class="hero-title" id="hero-heading">
+          L’impact de l’IA sur la performance et les dynamiques d’apprentissage
+        </h1>
+
+        <p class="hero-subtitle">
+          Dans quelle mesure l’intégration de l’intelligence artificielle permet-elle d’améliorer la performance et les
+          dynamiques d’apprentissage ?
+        </p>
+
+        <!-- Barre de métadonnées authentiques -->
+        <div class="hero-meta-bar" role="group" aria-label="Métadonnées institutionnelles du mémoire">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Auteur</span>
+            <span class="hero-meta-value">Thomas ALMODOVAR</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Établissement &amp; Formation</span>
+            <span class="hero-meta-value">École IPSSI - EISI • Mastère Dev, Data &amp; I.A</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Cadre professionnel</span>
+            <span class="hero-meta-value">Alternance • Service Pilotage de la performance, Crédit Agricole Sud
+              Méditerranée</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Année académique</span>
+            <span class="hero-meta-value">2025-2026</span>
+          </div>
+        </div>
+
+        <!-- Boutons d'action principaux -->
+        <div class="hero-cta-group">
+          <a href="lecture/introduction.html" class="btn-primary-hero" id="btnHeroPrimary">
+            <span>Lire le mémoire</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf"
+            class="btn-secondary-hero" title="Télécharger le fichier original du mémoire (2,08 Mo)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span>Télécharger le PDF complet (2,08 Mo)</span>
+          </a>
+
+          <a href="#sommaire" class="btn-link-hero">
+            <span>Explorer le sommaire ↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section C : Présentation du mémoire (Texte intégral fidèle du résumé du mémoire) -->
+  <section class="section-editorial" id="presentation" aria-labelledby="pres-title">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Résumé du mémoire</div>
+        <h2 class="section-title" id="pres-title">Présentation du cadre de recherche</h2>
+        <p class="section-lead">
+          Texte intégral du résumé de recherche issu du mémoire (page 5 du document original).
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <div class="overview-prose">
+          <p>
+            Ce mémoire examine dans quelle mesure l’intelligence artificielle peut améliorer la performance tout en
+            transformant l’apprentissage. Il adopte une approche documentaire et analytique fondée sur des études de cas
+            issues d’entreprise. Cette analyse est complétée par une expérience personnelle d’utilisation de l’IA dans
+            le cadre d’un programme de perte de poids et d’entraînement sportif de douze mois, ainsi que par des
+            entretiens semi-directifs menés avec des professionnels du Crédit Agricole, de l’USAP, d’Enduraw et du
+            projet d’apprentissage des langues LINA.
+          </p>
+          <p>
+            Les résultats montrent que l’IA améliore la performance de trois manières principales : en accélérant les
+            tâches existantes, en permettant d’atteindre des objectifs auparavant inaccessibles et en proposant des
+            solutions de plus en plus personnalisées. Toutefois, l’IA ne remplace pas l’apprentissage : elle le
+            transforme. En réduisant l’effort cognitif lié aux tâches répétitives ou secondaires, elle permet aux
+            utilisateurs de se concentrer sur la formulation des problèmes, l’esprit critique, la vérification et le
+            transfert des connaissances. Ainsi, le principe consistant à « apprendre avant de déléguer » est essentiel
+            pour préserver l’expertise et l’autonomie.
+          </p>
+          <p>
+            L’étude met également en évidence plusieurs limites, notamment la dépendance cognitive, la perte de
+            compétences, les coûts de transition, les hallucinations, les biais algorithmiques et les enjeux liés à la
+            souveraineté des données. Une intégration durable de l’IA nécessite donc de solides connaissances humaines,
+            une vérification systématique des contenus générés et un équilibre entre automatisation et jugement humain.
+            Dans le cadre de ce mémoire, LINA, une solution d’apprentissage des langues fondée sur l’IA, a été créée
+            afin de répondre à ces exigences.
+          </p>
+          <p>
+            Enfin, l’IA ne produit des gains de performance durables que lorsqu’elle complète l’expertise humaine. La
+            performance doit donc être considérée comme le résultat d’une collaboration efficace entre l’humain et l’IA,
+            dans laquelle la technologie renforce les capacités, tandis que les individus conservent leur
+            responsabilité, leur esprit critique et leur contrôle.
+          </p>
+        </div>
+
+        <div class="overview-card">
+          <h3 class="overview-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" class="overview-fact-icon">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            <span>Méthodologie et terrains d'étude</span>
+          </h3>
+          <ul class="overview-facts-list">
+            <li class="overview-fact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="overview-fact-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Approche documentaire et analytique :</strong> Confrontation de la littérature scientifique
+                et des rapports internationaux de référence (dont le rapport Stanford AI Index).</div>
+            </li>
+            <li class="overview-fact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="overview-fact-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Études de cas en entreprise :</strong> Analyse du déploiement opérationnel au Crédit Agricole
+                Sud Méditerranée et enquête interne de juillet 2026 sur les testeurs de l'outil FELIX.</div>
+            </li>
+            <li class="overview-fact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="overview-fact-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>4 entretiens semi-directifs :</strong> Échanges avec Anthony SALIOU (Enduraw), Jean-Baptiste
+                MERIEM (Crédit Agricole Assurance), Alexandre FERRER (USAP) et Celian BONNOT (USAP).</div>
+            </li>
+            <li class="overview-fact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="overview-fact-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Expérimentation personnelle sur 12 mois :</strong> Suivi empirique de l'IA appliquée à la
+                nutrition et à la préparation d'une course en montagne (trail de 21 km, 1 300 m D+ en 2h42, top 10 %).
+              </div>
+            </li>
+            <li class="overview-fact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="overview-fact-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div><strong>Conception du projet LINA :</strong> Développement d'une application d'apprentissage des
+                langues fondée sur l'IA, testée auprès de professionnels.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section D : Axes de réflexion (Formulations et définitions exactes du mémoire) -->
+  <section class="section-editorial section-editorial-alt" id="axes-cles" aria-labelledby="axes-title">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Cadre théorique du mémoire</div>
+        <h2 class="section-title" id="axes-title">Les régimes de performance et les dynamiques d'apprentissage</h2>
+        <div class="editorial-disclaimer">
+          <span>* Synthèse issue des Parties I et II du mémoire</span>
+        </div>
+      </div>
+
+      <div class="takeaways-grid">
+        <!-- Axe 1 -->
+        <article class="takeaway-card">
+          <div>
+            <div class="takeaway-num">Partie 1.2 • Premier régime</div>
+            <h3 class="takeaway-title">L’IA accélère : gains d’efficience sur des tâches maîtrisées</h3>
+            <p class="takeaway-desc">
+              L’IA fait plus vite et en plus grand volume ce qu’un humain compétent sait déjà faire. Il s'agit d'un gain
+              quantitatif où l'outil est théoriquement substituable, automatisant les tâches répétitives pour permettre
+              aux collaborateurs de se concentrer sur des missions à plus forte valeur ajoutée.
+            </p>
+          </div>
+          <a href="lecture/partie-1.html#sec-1-2" class="takeaway-link">
+            <span>Consulter la partie 1.2</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </a>
+        </article>
+
+        <!-- Axe 2 -->
+        <article class="takeaway-card">
+          <div>
+            <div class="takeaway-num">Partie 1.3 • Deuxième régime</div>
+            <h3 class="takeaway-title">L’IA rend possible : franchissement de seuils de capacité</h3>
+            <p class="takeaway-desc">
+              L’IA produit un résultat qui n’était pas atteignable autrement. Le mémoire démontre ce basculement à
+              travers deux cas concrets : le seuil d’échelle (prédiction de structures protéiques par AlphaFold) et le
+              seuil de difficulté (problème des équations de Navier–Stokes).
+            </p>
+          </div>
+          <a href="lecture/partie-1.html#sec-1-3" class="takeaway-link">
+            <span>Consulter la partie 1.3</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </a>
+        </article>
+
+        <!-- Axe 3 -->
+        <article class="takeaway-card">
+          <div>
+            <div class="takeaway-num">Partie 1.4 • Troisième régime</div>
+            <h3 class="takeaway-title">L’IA personnalise : de la moyenne au sur-mesure</h3>
+            <p class="takeaway-desc">
+              Charnière du mémoire : l’IA ne fait pas seulement plus vite ou plus grand, elle fait spécifique. Elle
+              permet de sortir de la performance moyenne pour produire une performance ajustée à un individu, un
+              contexte ou un moment (modélisation de l’athlète numérique Enduraw, cas Duolingo).
+            </p>
+          </div>
+          <a href="lecture/partie-1.html#sec-1-4" class="takeaway-link">
+            <span>Consulter la partie 1.4</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </a>
+        </article>
+
+        <!-- Axe 4 -->
+        <article class="takeaway-card">
+          <div>
+            <div class="takeaway-num">Partie 2.3 • Règle d'apprentissage</div>
+            <h3 class="takeaway-title">Apprendre avant de déléguer</h3>
+            <p class="takeaway-desc">
+              En réduisant l'effort cognitif lié aux tâches secondaires, l'IA déplace la charge vers la formulation et
+              l'esprit critique. Pour éviter l'illusion de compétence et l'atrophie des compétences fondamentales, la
+              maîtrise humaine du socle de connaissances doit impérativement précéder la délégation technique.
+            </p>
+          </div>
+          <a href="lecture/partie-2.html#sub-2-3-c" class="takeaway-link">
+            <span>Consulter la partie 2.3</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section E : Sommaire général (Chapter Lineup) -->
+  <section class="section-editorial" id="sommaire" aria-labelledby="toc-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Navigation séquentielle</div>
+        <h2 class="section-title" id="toc-heading">Sommaire complet du mémoire</h2>
+        <p class="section-lead">
+          Accédez au texte intégral de chaque partie, spécialement composé pour une lecture sereine, avec mémorisation
+          automatique de votre progression.
+        </p>
+      </div>
+
+      <div class="toc-list" role="list">
+        <!-- Introduction -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">00</div>
+          <div class="toc-info">
+            <span class="toc-category">Cadre de recherche</span>
+            <h3 class="toc-title">Introduction et problématique</h3>
+            <p class="toc-desc">Expérience personnelle (perte de poids de 50 kg et course de montagne), problématique de
+              recherche, méthodologie et plan du mémoire.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~3 min</span>
+            </span>
+            <a href="lecture/introduction.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Partie 0 -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">0.0</div>
+          <div class="toc-info">
+            <span class="toc-category">Socle conceptuel</span>
+            <h3 class="toc-title">Partie 0 — Fondamentaux : Comprendre l'IA</h3>
+            <p class="toc-desc">Histoire et chronologie, différences entre programmation classique et apprentissage
+              automatique, architecture Transformer, LLM, CNN et panorama des technologies.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~8 min</span>
+            </span>
+            <a href="lecture/partie-0.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Partie I -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">01</div>
+          <div class="toc-info">
+            <span class="toc-category">Analyse empirique</span>
+            <h3 class="toc-title">Partie I — L'IA comme levier d'augmentation de la performance</h3>
+            <p class="toc-desc">Les trois régimes de performance : accélérer (tâches en entreprise et outil FELIX),
+              rendre possible (AlphaFold, Navier-Stokes) et personnaliser (athlète numérique, Duolingo).</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~43 min</span>
+            </span>
+            <a href="lecture/partie-1.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Partie II -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">02</div>
+          <div class="toc-info">
+            <span class="toc-category">Sciences de l'apprentissage</span>
+            <h3 class="toc-title">Partie II — L'IA et les dynamiques d'apprentissage</h3>
+            <p class="toc-desc">Interlocuteur cognitif permanent, théorie de la charge cognitive de Sweller, retour
+              d'expérience personnel sur 12 mois, nouveau rôle de l'enseignement et principe 'Apprendre avant de
+              déléguer'.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~23 min</span>
+            </span>
+            <a href="lecture/partie-2.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Partie III -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">03</div>
+          <div class="toc-info">
+            <span class="toc-category">Limites &amp; Prospective</span>
+            <h3 class="toc-title">Partie III — Limites, risques et cohabitation humain-IA</h3>
+            <p class="toc-desc">Érosion du socle de compétences, boucle solitaire, coûts de transition et dette de
+              formation, empreinte environnementale, projet LINA et principes directeurs d'intégration maîtrisée.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~30 min</span>
+            </span>
+            <a href="lecture/partie-3.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Conclusion -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">04</div>
+          <div class="toc-info">
+            <span class="toc-category">Synthèse conclusive</span>
+            <h3 class="toc-title">Bilan, perspectives et conclusion générale</h3>
+            <p class="toc-desc">Bilan réflexif personnel, conditions d'une performance réellement augmentée, réponse
+              définitive à la problématique et perspectives professionnelles.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~7 min</span>
+            </span>
+            <a href="lecture/conclusion.html" class="btn-read-part">Lire cette partie →</a>
+          </div>
+        </article>
+
+        <!-- Glossaire -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">G</div>
+          <div class="toc-info">
+            <span class="toc-category">Référence conceptuelle</span>
+            <h3 class="toc-title">Glossaire et définitions des termes</h3>
+            <p class="toc-desc">Plus de 60 définitions détaillées (Agents IA, AlphaFold, Charge cognitive, Overfitting,
+              RAG, Transformers, etc.) et liste commentée des sigles et abréviations.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~21 min</span>
+            </span>
+            <a href="lecture/glossaire.html" class="btn-read-part">Consulter le glossaire →</a>
+          </div>
+        </article>
+
+        <!-- Bibliographie -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">B</div>
+          <div class="toc-info">
+            <span class="toc-category">Sources académiques</span>
+            <h3 class="toc-title">Bibliographie et webographie annotée</h3>
+            <p class="toc-desc">Recensement des publications scientifiques, rapports institutionnels (dont Stanford AI
+              Index 2026, UNESCO, OCDE) et études sectorielles avec résumés critiques.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~25 min</span>
+            </span>
+            <a href="lecture/bibliographie.html" class="btn-read-part">Voir la bibliographie →</a>
+          </div>
+        </article>
+
+        <!-- Annexes -->
+        <article class="toc-entry" role="listitem">
+          <div class="toc-num">A</div>
+          <div class="toc-info">
+            <span class="toc-category">Matériaux d'enquête</span>
+            <h3 class="toc-title">Annexes et entretiens de terrain</h3>
+            <p class="toc-desc">Table des figures scientifiques, statistiques de l'enquête FELIX au Crédit Agricole,
+              architecture de l'application LINA et retranscription intégrale des 4 entretiens de recherche.</p>
+          </div>
+          <div class="toc-meta">
+            <span class="toc-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>~20 min</span>
+            </span>
+            <a href="lecture/annexes.html" class="btn-read-part">Consulter les annexes →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section F : À propos et téléchargement -->
+  <section class="section-editorial section-editorial-alt" id="a-propos" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Notice &amp; Archivage</div>
+        <h2 class="section-title" id="about-title">À propos de l'auteur et téléchargement du mémoire</h2>
+        <p class="section-lead">
+          Retrouvez les éléments d'identification institutionnelle, la référence bibliographique normée et l'accès
+          direct au fichier officiel.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Colonne Auteur & Contexte universitaire -->
+        <div class="about-card">
+          <h3 class="about-title">Cadre de recherche universitaire</h3>
+          <p class="about-text">
+            Ce mémoire de recherche a été préparé et soutenu par <strong>Thomas ALMODOVAR</strong> dans le cadre du
+            cursus de <strong>Mastère Dev, Data &amp; I.A</strong> au sein de l'<strong>École IPSSI - EISI</strong>
+            (promotion 2025-2026).
+          </p>
+          <p class="about-text">
+            Le diplôme a été réalisé en alternance au sein du service Pilotage de la performance du <strong>Crédit
+              Agricole Sud Méditerranée</strong>.
+          </p>
+
+          <h4
+            style="font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 10px;">
+            Référence bibliographique recommandée (format APA)
+          </h4>
+          <div class="citation-box" id="citationText">
+            Almodovar, T. (2026). <em>L’impact de l’IA sur la performance et les dynamiques d’apprentissage : Dans
+              quelle mesure l’intégration de l’intelligence artificielle permet-elle d’améliorer la performance et les
+              dynamiques d’apprentissage ?</em> [Mémoire de Mastère Dev, Data &amp; I.A, École IPSSI - EISI]. Partenaire
+            professionnel : Crédit Agricole Sud Méditerranée.
+          </div>
+          <button type="button" class="btn-copy-citation" id="btnCopyCitation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <span>Copier la référence</span>
+          </button>
+        </div>
+
+        <!-- Colonne Téléchargement PDF officiel -->
+        <div class="pdf-download-card">
+          <div>
+            <div class="pdf-file-details">
+              <div class="pdf-icon-large" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10 9 9 9 8 9" />
+                </svg>
+              </div>
+              <div>
+                <div class="pdf-info-title">Document original complet</div>
+                <div class="pdf-info-specs">Format PDF • 152 pages • 2,08 Mo (2 075 330 octets) • Texte intégral
+                  original</div>
+              </div>
+            </div>
+            <p style="font-size: 0.925rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+              Le document PDF original comprend la page de garde, le certificat d'authenticité, les remerciements, les
+              résumés bilingues, le glossaire, les 4 parties rédigées, la bibliographie exhaustive de 30 pages et les
+              retranscriptions complètes d'entretiens.
+            </p>
+          </div>
+
+          <div class="pdf-actions">
+            <a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf"
+              class="btn-download-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Télécharger le PDF original</span>
+            </a>
+            <a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-view-pdf">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span>Consulter en ligne</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pied de page officiel -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand">
+            <span class="brand-badge">Mémoire</span>
+            <span>Thomas ALMODOVAR</span>
+          </div>
+          <p class="footer-brand-desc">
+            Publication numérique universitaire du mémoire de Mastère Dev, Data &amp; I.A (École IPSSI - EISI, promotion
+            2025-2026). Le diplôme a été réalisé en alternance au sein du service Pilotage de la performance de Crédit
+            Agricole Sud Méditerranée.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Parcours de lecture</div>
+          <ul class="footer-links">
+            <li><a href="lecture/introduction.html">Introduction &amp; Problématique</a></li>
+            <li><a href="lecture/partie-1.html">Partie I — Performance</a></li>
+            <li><a href="lecture/partie-2.html">Partie II — Apprentissage</a></li>
+            <li><a href="lecture/partie-3.html">Partie III — Limites &amp; Risques</a></li>
+            <li><a href="lecture/conclusion.html">Conclusion générale</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Ressources &amp; Archives</div>
+          <ul class="footer-links">
+            <li><a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf">Télécharger le
+                PDF (2,08 Mo)</a></li>
+            <li><a href="assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank">Consulter le PDF en ligne</a></li>
+            <li><a href="lecture/glossaire.html">Glossaire des concepts</a></li>
+            <li><a href="lecture/bibliographie.html">Bibliographie annotée</a></li>
+            <li><a href="lecture/annexes.html">Entretiens &amp; Annexes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thomas ALMODOVAR — Mémoire universitaire. Tous droits de citation réservés selon les règles de la
+          recherche académique.</div>
+        <div>Conception éditoriale sobre et accessible, conforme à l'esprit WCAG 2.2 AA.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

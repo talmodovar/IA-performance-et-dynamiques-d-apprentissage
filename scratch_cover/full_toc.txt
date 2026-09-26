@@ -1,0 +1,105 @@
+--- PAGE 7 ---
+ 
+ 
+ 
+Sommaire 
+ 
+Introduction et problématique ..................................................................................... 1 
+PARTIE 0, FONDAMENTAUX : Comprendre l'IA ....................................................... 3 
+0.1 Définition et histoire et de l'intelligence artificielle ..................................... 3 
+Qu'est-ce que l'IA ? ........................................................................................... 3 
+IA versus programme informatique classique : ................................................. 4 
+Histoire et chronologie de l'IA ........................................................................... 4 
+Evolution récente des performances ................................................................ 6 
+0.2 Panorama des grandes familles de technologies IA ................................. 6 
+Les grands modèles de langage (LLM) ............................................................ 6 
+Les réseaux de neurones convolutifs (CNN) .................................................... 7 
+L'IA générative au-delà du texte ....................................................................... 7 
+L'IA prédictive et analytique .............................................................................. 8 
+L'apprentissage par renforcement .................................................................... 8 
+Cas d'usages .................................................................................................... 9 
+PARTIE I, L'IA comme levier d'augmentation de la performance ............................. 10 
+1.1 Qu'est-ce que la performance ? ................................................................. 10 
+a) Les dimensions de la performance................................................................ 10 
+b) L'IA déplace l'attente de performance ........................................................... 12 
+Ce qui devient partiellement délégable ........................................................... 13 
+Vers quoi l'attente se déplace ......................................................................... 13 
+La thèse .......................................................................................................... 14 
+Deux conséquences ....................................................................................... 14 
+Articulation ...................................................................................................... 15 
+1.2 L'IA accélère : les gains d'efficience sur des tâches maîtrisées ...................... 16 
+a) L'automatisation des tâches en entreprise .................................................... 16 
+a.1) Expérience personnelle, le cas du Crédit Agricole .................................. 16 
+a.2) Un changement généralisé ...................................................................... 20 
+b) L'accélération du travail scientifique et technique ......................................... 21 
+1.3 L'IA rend possible : le franchissement de seuils de capacité .......................... 25 
+a.1) Le seuil d'échelle : la structure des protéines ............................................. 25 
+--- PAGE 8 ---
+ 
+ 
+ 
+a.2) Le seuil de difficulté : le problème de Navier–Stokes ................................. 27 
+b) Ce que le franchissement de seuil implique .................................................. 30 
+1.4 L'IA personnalise : de la moyenne au sur-mesure .......................................... 31 
+a) Digital twin, modélisation d'un athlète numérique .......................................... 31 
+b) La personnalisation comme nouveau standard ............................................. 33 
+c) Ce que l'IA personnalise réellement : le cas Duolingo ................................... 35 
+Conclusion de partie I ........................................................................................... 37 
+PARTIE II, L'IA et les dynamiques d'apprentissage .................................................. 39 
+2.1 Apprendre avec l'IA : la transformation de l'acte d'apprendre ......................... 39 
+a) La disponibilité permanente d'un interlocuteur cognitif .................................. 39 
+La rareté historique de l'explication personnalisée ......................................... 39 
+Trois ruptures .................................................................................................. 39 
+Une nuance décisive : répondre n'est pas enseigner ..................................... 40 
+Ce qui reste ouvert ......................................................................................... 40 
+b) Le déplacement de la charge cognitive ......................................................... 41 
+b.1) La théorie de la charge cognitive ............................................................. 41 
+b.2) Comparatif : apprentissage classique / apprentissage avec IA générative
+ ........................................................................................................................ 42 
+c) Retour d'expérience : apprendre avec l'IA sur douze mois ............................ 43 
+Une progression en trois temps ...................................................................... 44 
+Un outil d’apprentissage plutôt qu’une prothèse ............................................. 45 
+2.2 Nouveau rôle de l’enseignement et des organisations .................................... 46 
+a) Les solutions de l'enseignement face à l'IA ................................................... 46 
+Pourquoi former les enseignants .................................................................... 46 
+Des formations qui existent déjà ..................................................................... 46 
+Ce que l'on enseigne concrètement ................................................................ 47 
+b) L'apprentissage organisationnel : le cas du Crédit Agricole .......................... 48 
+2.3 L’IA, future discipline à part entière : vers une compétence métier spécialisée
+ .............................................................................................................................. 49 
+a) Une trajectoire comparable à celle de la digitalisation................................... 49 
+b) Une compétence qui se spécialise selon les métiers .................................... 50 
+c) Apprendre avant de déléguer ........................................................................ 51 
+Conclusion de partie II .......................................................................................... 52 
+PARTIE III, Limites, risques et cohabitation humain-IA ............................................ 55 
+--- PAGE 9 ---
+ 
+ 
+ 
+3.1 Risques pour les compétences humaines ....................................................... 55 
+a) Quand le déplacement de l’effort devient suppression de l’effort .................. 55 
+b) De l’assistance à l’érosion du socle : illusion de compétence et évitement de la 
+difficulté ............................................................................................................. 57 
+c) Le risque de la boucle solitaire ...................................................................... 58 
+d) Une vulnérabilité inégale entre experts et novices ........................................ 59 
+3.2 Coûts de transition et impacts organisationnels .............................................. 60 
+a) Le coût réel de l’IA : investissement, ROI et incertitude économique ............ 60 
+b) La dette de compétence : déployer plus vite que former ............................... 62 
+c) Le coût humain et organisationnel de la transition ........................................ 63 
+d) L’homogénéisation des pratiques et la question de la responsabilité ............ 63 
+e) Le coût environnemental : une double exposition financière et RSE............. 64 
+3.3 Conditions d'une intégration réussie et nouveaux rôles .................................. 66 
+a) Principes directeurs d'une intégration maîtrisée et performante .................... 66 
+a.1) Les principes d’une intégration maîtrisée dans la performance ............... 66 
+a.2) Les principes d’une intégration maîtrisée dans l’apprentissage ............... 67 
+b) Projet personnel développé : présentation de LINA ...................................... 67 
+b.1) Présentation du concept .......................................................................... 68 
+b.2) Les points d’amélioration ......................................................................... 70 
+b.3) Retour des professionnels ....................................................................... 71 
+Conclusion de partie III ......................................................................................... 75 
+Bilan et perspectives ................................................................................................ 76 
+Conclusion ................................................................................................................ 78 
+Une performance réellement augmentée, mais sous conditions ....................... 78 
+Limites, risques et conditions d’une intégration maîtrisée ................................. 79 
+Réponse à la problématique et perspectives ..................................................... 79 
+  

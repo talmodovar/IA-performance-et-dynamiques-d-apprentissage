@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-text-size="standard">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilan, perspectives et conclusion générale | Mémoire de Thomas ALMODOVAR</title>
+  <meta name="description" content="Synthèse générale des apports de la thèse : l&#x27;IA ne génère de surperformance durable que comme amplificateur d&#x27;une expertise humaine solide, responsable et crit">
+  <meta name="author" content="Thomas ALMODOVAR">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bilan, perspectives et conclusion générale">
+  <meta property="og:description" content="Synthèse générale des apports de la thèse : l&#x27;IA ne génère de surperformance durable que comme amplificateur d&#x27;une expertise humaine solide, responsable et crit">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/reader.css">
+</head>
+<body>
+  <!-- Lien d'évitement WCAG -->
+  <a href="#main-reading-content" class="skip-link">Passer directement au texte du chapitre</a>
+
+  <!-- En-tête du site -->
+  <header class="site-header" role="banner">
+    <div class="container site-header-inner">
+      <a href="../index.html" class="brand" aria-label="Retour à l'accueil du mémoire">
+        <span class="brand-badge">Mémoire</span>
+        <span>Thomas ALMODOVAR</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html" class="nav-link">Accueil</a>
+        <a href="../index.html#presentation" class="nav-link">Présentation</a>
+        <a href="../index.html#sommaire" class="nav-link">Sommaire général</a>
+        <a href="../index.html#a-propos" class="nav-link">À propos & Métadonnées</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-download-header" title="Consulter le mémoire complet au format PDF dans un nouvel onglet">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Consulter le PDF en ligne</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Progression de lecture -->
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-bar"></div>
+    </div>
+  </header>
+
+  <!-- Barre d'outils de lecture (fil d'ariane & réglages) -->
+  <aside class="reader-toolbar" aria-label="Commandes de confort de lecture">
+    <div class="container reader-toolbar-inner">
+      <div class="reader-toolbar-left">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#sommaire">Sommaire</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" aria-current="page">Bilan, perspectives et conclusion générale</span>
+        </nav>
+      </div>
+
+      <div class="reader-controls">
+        <button type="button" class="btn-toc-toggle" id="btnMobileToc" aria-expanded="false" aria-label="Afficher le sommaire de la partie">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Sommaire</span>
+        </button>
+
+        <!-- Sélecteur de Thème -->
+        <div class="control-group" role="group" aria-label="Sélection du thème de lecture">
+          <button type="button" class="control-btn active" data-set-theme="light" aria-pressed="true" title="Thème clair ivoire">Clair</button>
+          <button type="button" class="control-btn" data-set-theme="sepia" aria-pressed="false" title="Thème sépia ambré">Sépia</button>
+          <button type="button" class="control-btn" data-set-theme="dark" aria-pressed="false" title="Thème sombre onyx">Sombre</button>
+        </div>
+
+        <!-- Sélecteur de Taille de police -->
+        <div class="control-group" role="group" aria-label="Taille de typographie">
+          <button type="button" class="control-btn" data-set-size="small" aria-pressed="false" title="Petite taille (17px)">A-</button>
+          <button type="button" class="control-btn active" data-set-size="standard" aria-pressed="true" title="Taille standard (19px)">A</button>
+          <button type="button" class="control-btn" data-set-size="large" aria-pressed="false" title="Grande taille (21px)">A+</button>
+        </div>
+
+        <!-- Mode concentration -->
+        <button type="button" class="btn-zen-mode" id="btnZenMode" aria-pressed="false" title="Activer le mode concentration sans distraction (Touche Z)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+          <span class="zen-label">Mode Zen</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Disposition principale de lecture -->
+  <div class="reader-layout">
+    <!-- Sommaire latéral fixe/sticky -->
+    <nav class="reader-sidebar" aria-label="Sommaire de la partie">
+      <div class="reader-sidebar-title">Plan de cette partie</div>
+      <ul class="chapter-toc-list">
+        <li class="chapter-toc-item"><a href="#concl-bilan" class="chapter-toc-link">Bilan personnel et perspectives</a></li>
+<li class="chapter-toc-item"><a href="#concl-generale" class="chapter-toc-link">Conclusion générale du mémoire</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#concl-performance" class="chapter-toc-link">Une performance réellement augmentée, sous conditions</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#concl-limites" class="chapter-toc-link">Limites, risques et conditions d&#x27;une intégration maîtrisée</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#concl-reponse" class="chapter-toc-link">Réponse finale à la problématique</a></li>
+      </ul>
+      <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-secondary-outline" style="width: 100%; justify-content: center; font-size: 0.825rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Ouvrir en PDF</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Corps de lecture principal -->
+    <main id="main-reading-content" class="reader-content" role="main">
+      <header class="chapter-header">
+        <div class="chapter-part-num">Synthèse conclusive</div>
+        <h1 class="chapter-title">Bilan, perspectives et conclusion générale</h1>
+        <p class="chapter-subtitle">Synthèse de la thèse : l&#x27;augmentation sous condition d&#x27;une maîtrise humaine</p>
+
+        <div class="chapter-meta-row">
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>~7 min de lecture (1 323 mots)</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Thomas ALMODOVAR</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>École IPSSI — 2025-2026</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Synthèse éditoriale identifiée -->
+      <section class="editorial-chapter-summary" aria-label="Synthèse éditoriale de la partie">
+        <div class="summary-heading">
+          <span>Points clés du chapitre</span>
+          <span class="summary-badge">Synthèse éditoriale à valider</span>
+        </div>
+        <p>Synthèse générale des apports de la thèse : l&#x27;IA ne génère de surperformance durable que comme amplificateur d&#x27;une expertise humaine solide, responsable et critique, et non comme un substitut cognitif.</p>
+      </section>
+
+      <!-- Texte intégral du mémoire -->
+      <article class="chapter-body-text">
+        <p>Bilan et perspectives La réalisation de ce mémoire a constitué une expérience particulièrement formatrice. Elle m’a d’abord permis d’apprendre à structurer mes idées et à conduire une recherche documentaire sur un sujet à la fois vaste  et évolutif. Ce travail m’a également amené à explorer des domaines éloignés de mon champ initial, tels que le cognitivisme ou la mécanique des fluides. L’utilisation du cognitivisme comme cadre d’analyse appliqué à l’intelligence artificielle m’a notamment aidé à organiser mon raisonnement de manière plus structurée et professionnelle. Cette recherche s’est aussi nourrie de rencontres avec Anthony Saliou, Jean-Baptiste Meriem, des professionnels de la pédagogie et des représentants de la section jeune l’USAP. Leurs expériences ont enrichi ma réflexion et m’ont permis de confronter mes hypothèses à différentes réalités professionnelles. La présentation de mon sujet à la direction du Crédit Agricole a constitué une autre étape importante : elle m’a confronté aux exigences du monde professionnel. Plus largement, cette expérience m’a appris à apprendre et m’a fait prendre conscience de l’importance de cette capacité. Ce travail a également modifié ma perception des usages de l’intelligence artificielle. Leur caractère intuitif me conduisait initialement à penser que chacun pouvait facilement s’approprier ces outils. Les observations réalisées montrent toutefois que cette maîtrise est loin d’être acquise. La formation apparaît donc comme une condition essentielle à une utilisation efficace et responsable. Les analyses menées permettent ainsi d’apporter une réponse nuancée à la problématique. L’intelligence artificielle ne supprime pas les limites de la performance humaine : elle les déplace . La performance devient progressivement le résultat d’une collaboration entre l’humain et la machine. Cette coopération peut prendre trois formes : l’augmentation, le franchissement de seuil et la personnalisation. L’utilisateur doit être capable de fournir des paramètres d’entrée pertinents, puis de contrôler les résultats obtenus. La qualité de la performance dépend donc autant des capacités de l’outil que des connaissances de celui qui l’utilise.</p>
+<p>Cette conclusion justifie la nécessité « d’apprendre avant de déléguer ». L’IA devrait ainsi contribuer à la construction d’un socle de connaissances, puis servir d’accélérateur pour consolider celui-ci. La conception de LINA représente la principale concrétisation de ce mémoire. Le projet demeure, à ce stade, un concept, mais les retours positifs de la direction du Crédit Agricole et des professionnels de la pédagogie interrogés, ont conduit à valider la poursuite de son développement en interne. Cette reconnaissance constitue un résultat encourageant. Enfin, l’évolution particulièrement rapide des technologies limite nécessairement la portée temporelle de certaines conclusions. Ces limites ouvrent plusieurs perspectives de recherche. Une étude comparative et longitudinale pourrait être menée auprès d’étudiants et de salariés afin d’évaluer les effets durables d’un enseignement personnalisé par l’IA. Elle pourrait comparer des apprentissages réalisés avec ou sans personnalisation, puis mesurer non seulement les performances obtenues, mais aussi l’autonomie des participants face à une difficulté nouvelle. L’enjeu ne serait donc pas de déterminer s’il faut utiliser l’IA, mais d’identifier les conditions et le niveau d’utilisation favorisant réellement l’apprentissage.</p>
+<p>Conclusion Ce mémoire avait pour ambition de répondre à une problématique : « Dans quelle mesure l’intégration de l’intelligence artificielle permet -elle d’améliorer la performance tout en transformant les dynamiques d’apprentissage ?  ». Après avoir exposé les fondamentaux de l’IA (Partie 0), analysé ses apports en matière de performance (Partie I), étudié ses effets sur l’apprentissage (Partie II), puis ses limites et les conditions d’une cohabitation maîtrisée (Partie III), il est dé sormais possible de formuler une réponse à cette question. Une performance réellement augmentée, mais sous conditions Les travaux conduits dans ce mémoire confirment que l’IA constitue bien un levier d’augmentation de la performance. Trois régimes de contribution ont été identifiés en Partie I. Premièrement, l’IA accélère : sur des tâches maîtrisées, elle apporte un gain d’efficience mesurable, comme le montre la comparaison entre le modèle physique IFS de l’ECMWF et son équivalent AIFS, ou encore l’expérience FELIX au Crédit Agricole Sud Méditerranée, où 85 % des testeurs gagne au moins dix minutes par utilisation. Deuxièmement, l’IA rend possible  : elle franchit des seuils que les méthodes classiques ne peuvent pas atteindre, illustrés par AlphaFold  pour le repliement des protéines ou par la résolution partielle du problème de Navier–Stokes. Troisièmement, l’IA personnalise : en passant d’une logique de moyenne à une logique de sur -mesure, comme le montrent le jumeau numérique d’Enduraw ou les parcours adaptatifs de Duolingo. Mon retour d’expérience d’utilisation d’IA dans une perte de cinquante kilogrammes et d’une performance sportive en douze mois confirme la réalité de ces gains. La Partie II a montré que cette augmentation ne va pas sans une transformation des dynamiques d’apprentissage. Conformément à la théorie de la charge cognitive , l’IA allège la charge extrinsèque, mais elle exige en contrepartie de déplacer l’effort en charge intrinsèque et/ou en charge essentielle (germane). La performance n’est donc pas seulement technique : elle suppose que l’utilisateur  développe sa capacité à exercer un contrôle sur la production de l’IA.</p>
+<p>Limites, risques et conditions d’une intégration maîtrisée Les apports précédents ne valent qu’à certaines conditions, explicitement identifiées en Partie III. Trois familles de limites  ont été mises en évidence. D’une part, les risques pour les compétences humaines  : lorsque la délégation devient systématique, l’utilisateur peut basculer d’une logique d’augmentation à une dépendance, avec à terme une érosion du socle de compétences et un phénomène d’erreur convaincante. D’autre part, les coûts de transition  : retour sur investissement incertain, dette de compétence lorsque le déploiement précède la formation, et coût humain lié à la transformation des métiers. Enfin, des risques techniques récurrents hallucinations, biais hérités des données, dépendance à des fournisseurs extérieurs auxquels s’ajoutent des enjeux de souveraineté numérique particulièrement sensibles dans le secteur bancaire. L’analyse croisée des quatre entretiens menés auprès de praticiens (préparateurs physiques de l’USAP , professionnel du sport chez Enduraw, Chief Data &amp; AI Officer de Crédit Agricole Assurances, professeurs de langues sur le projet LINA) converge sur un même enseignement : la performance apportée par l’IA n’est durable et fiable qu’accompagnée d’un filtre de vérification humaine, d’une préservation de l’expertise de contrôle et d’une finalité assignée à chaque usage. Anthony Saliou résume cet équilibre en avertissant que, sans professionnalisme, l’IA « peut être dangereuse ». Jean-Baptiste Meriem confirme que l’IA ne supprime pas la charge de travail mais la déplace, concentrant l’activité humaine sur les situations les plus complexes. Le cas LINA illustre enfin qu’une intégration réussie repose sur une complémentarité assumée entre la personnalisation offerte par l’IA et l’expertise pédagogique de l’enseignant. Réponse à la problématique et perspectives La problématique peut être formulée clairement. Oui, l’intégration de l’IA permet d’améliorer la performance l’efficience, la qualité, le franchissement de seuils et la personnalisation en apportent la preuve sur des terrains variés. Mais cette amélioration est indissociable d’une transformation profonde des dynamiques d’apprentissage : parce qu’elle délègue une partie du travail cognitif, l’IA impose en retour de redéfinir ce qui doit rester sous responsabilité humaine. L’IA engage une refonte des compétences, des métiers et des organisations, à l’image de ce qu’a représenté</p>
+<p>l’informatique et le digital dans le système éducatif et professionnel. La performance n’est plus celle de l’utilisateur seul ni celle de la machine seule, mais celle du système formé par leur coopération. Ce travail comporte néanmoins plusieurs limites qu’il convient d’assumer. L’analyse repose n’a pas vocation à couvrir l’ensemble des catégories sociales ni l’ensemble des secteurs d’activité. Enfin, le paysage technologique évolue à un rythme tel que certaines conclusions devront être réinterrogées à mesure que se diffuseront de nouveaux usages. En définitive, l’IA demande à être maîtrisée plutôt que subie. L’enjeu est de conserver la main sur les décisions, sur la finalité des usages et sur la qualité du raisonnement, afin que l’augmentation de performance demeure un levier d’apprentissage et d’élévation des compétences humaines, et non le prélude à leur appauvrissement. Tel est, en synthèse, l’enseignement que ce mémoire ambitionne de transmettre.</p>
+      </article>
+
+      <!-- Navigation séquentielle bas de page -->
+      <footer class="chapter-nav-footer">
+        <div class="chapter-nav-grid">
+          
+        <a href="partie-3.html" class="chapter-nav-card prev">
+          <span class="chapter-nav-direction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Partie précédente</span>
+          </span>
+          <span class="chapter-nav-title">Partie III — Limites, risques et cohabitation humain-IA</span>
+          <span class="chapter-nav-time">~30 min de lecture</span>
+        </a>
+        
+          
+        <a href="glossaire.html" class="chapter-nav-card next">
+          <span class="chapter-nav-direction">
+            <span>Partie suivante</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+          <span class="chapter-nav-title">Glossaire et définitions des termes</span>
+          <span class="chapter-nav-time">~21 min de lecture</span>
+        </a>
+        
+        </div>
+
+        <div class="chapter-nav-bottom-actions">
+          <a href="../index.html#sommaire" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Retour au sommaire général</span>
+          </a>
+
+          <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Télécharger le mémoire complet (PDF)</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand">
+            <span class="brand-badge">Mémoire</span>
+            <span>Thomas ALMODOVAR</span>
+          </div>
+          <p class="footer-brand-desc">
+            Publication numérique universitaire du mémoire de Mastère Dev, Data & IA (École IPSSI - EISI, promotion 2025-2026). Ce diplôme a été réalisé en alternance au sein du service Pilotage de la performance de Crédit Agricole Sud Méditerranée.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Accueil du site</a></li>
+            <li><a href="../index.html#presentation">Présentation</a></li>
+            <li><a href="../index.html#sommaire">Sommaire général</a></li>
+            <li><a href="../index.html#a-propos">À propos & Métadonnées</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Document</div>
+          <ul class="footer-links">
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf">Télécharger le PDF original (2,08 Mo)</a></li>
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank">Consulter le PDF en ligne</a></li>
+            <li><a href="glossaire.html">Glossaire des termes</a></li>
+            <li><a href="bibliographie.html">Bibliographie & Webographie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thomas ALMODOVAR — Tous droits de reproduction et de citation réservés selon les règles universitaires.</div>
+        <div>Conception éditoriale respectant les critères d'accessibilité WCAG 2.2 AA.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/reader.js"></script>
+</body>
+</html>

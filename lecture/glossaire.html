@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-text-size="standard">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossaire et définitions des termes | Mémoire de Thomas ALMODOVAR</title>
+  <meta name="description" content="Répertoire exhaustif de plus de 60 définitions et abréviations techniques et conceptuelles mobilisées tout au long du mémoire.">
+  <meta name="author" content="Thomas ALMODOVAR">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Glossaire et définitions des termes">
+  <meta property="og:description" content="Répertoire exhaustif de plus de 60 définitions et abréviations techniques et conceptuelles mobilisées tout au long du mémoire.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/reader.css">
+</head>
+<body>
+  <!-- Lien d'évitement WCAG -->
+  <a href="#main-reading-content" class="skip-link">Passer directement au texte du chapitre</a>
+
+  <!-- En-tête du site -->
+  <header class="site-header" role="banner">
+    <div class="container site-header-inner">
+      <a href="../index.html" class="brand" aria-label="Retour à l'accueil du mémoire">
+        <span class="brand-badge">Mémoire</span>
+        <span>Thomas ALMODOVAR</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html" class="nav-link">Accueil</a>
+        <a href="../index.html#presentation" class="nav-link">Présentation</a>
+        <a href="../index.html#sommaire" class="nav-link">Sommaire général</a>
+        <a href="../index.html#a-propos" class="nav-link">À propos & Métadonnées</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-download-header" title="Consulter le mémoire complet au format PDF dans un nouvel onglet">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Consulter le PDF en ligne</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Progression de lecture -->
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-bar"></div>
+    </div>
+  </header>
+
+  <!-- Barre d'outils de lecture (fil d'ariane & réglages) -->
+  <aside class="reader-toolbar" aria-label="Commandes de confort de lecture">
+    <div class="container reader-toolbar-inner">
+      <div class="reader-toolbar-left">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#sommaire">Sommaire</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" aria-current="page">Glossaire et définitions des termes</span>
+        </nav>
+      </div>
+
+      <div class="reader-controls">
+        <button type="button" class="btn-toc-toggle" id="btnMobileToc" aria-expanded="false" aria-label="Afficher le sommaire de la partie">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Sommaire</span>
+        </button>
+
+        <!-- Sélecteur de Thème -->
+        <div class="control-group" role="group" aria-label="Sélection du thème de lecture">
+          <button type="button" class="control-btn active" data-set-theme="light" aria-pressed="true" title="Thème clair ivoire">Clair</button>
+          <button type="button" class="control-btn" data-set-theme="sepia" aria-pressed="false" title="Thème sépia ambré">Sépia</button>
+          <button type="button" class="control-btn" data-set-theme="dark" aria-pressed="false" title="Thème sombre onyx">Sombre</button>
+        </div>
+
+        <!-- Sélecteur de Taille de police -->
+        <div class="control-group" role="group" aria-label="Taille de typographie">
+          <button type="button" class="control-btn" data-set-size="small" aria-pressed="false" title="Petite taille (17px)">A-</button>
+          <button type="button" class="control-btn active" data-set-size="standard" aria-pressed="true" title="Taille standard (19px)">A</button>
+          <button type="button" class="control-btn" data-set-size="large" aria-pressed="false" title="Grande taille (21px)">A+</button>
+        </div>
+
+        <!-- Mode concentration -->
+        <button type="button" class="btn-zen-mode" id="btnZenMode" aria-pressed="false" title="Activer le mode concentration sans distraction (Touche Z)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+          <span class="zen-label">Mode Zen</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Disposition principale de lecture -->
+  <div class="reader-layout">
+    <!-- Sommaire latéral fixe/sticky -->
+    <nav class="reader-sidebar" aria-label="Sommaire de la partie">
+      <div class="reader-sidebar-title">Plan de cette partie</div>
+      <ul class="chapter-toc-list">
+        <li class="chapter-toc-item"><a href="#glo-termes" class="chapter-toc-link">Définition des termes utilisés</a></li>
+<li class="chapter-toc-item"><a href="#glo-abrev" class="chapter-toc-link">Description des abréviations</a></li>
+      </ul>
+      <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-secondary-outline" style="width: 100%; justify-content: center; font-size: 0.825rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Ouvrir en PDF</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Corps de lecture principal -->
+    <main id="main-reading-content" class="reader-content" role="main">
+      <header class="chapter-header">
+        <div class="chapter-part-num">Référence</div>
+        <h1 class="chapter-title">Glossaire et définitions des termes</h1>
+        <p class="chapter-subtitle">Terminologie technique, concepts d&#x27;IA et abréviations du mémoire</p>
+
+        <div class="chapter-meta-row">
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>~21 min de lecture (4 288 mots)</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Thomas ALMODOVAR</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>École IPSSI — 2025-2026</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Synthèse éditoriale identifiée -->
+      <section class="editorial-chapter-summary" aria-label="Synthèse éditoriale de la partie">
+        <div class="summary-heading">
+          <span>Points clés du chapitre</span>
+          <span class="summary-badge">Synthèse éditoriale à valider</span>
+        </div>
+        <p>Répertoire exhaustif de plus de 60 définitions et abréviations techniques et conceptuelles mobilisées tout au long du mémoire.</p>
+      </section>
+
+      <!-- Texte intégral du mémoire -->
+      <article class="chapter-body-text">
+        <p>Liste des abréviations et définition des termes</p>
+<h2 id="glo-termes">Définition des termes utilisés</h2>
+<p>Affective computing Branche de l&#x27;IA détectant/identifiant ou simulant des émotions humaines. Agent (IA) Système d&#x27;IA capable d&#x27;enchaîner plusieurs actions de façon autonome pour atteindre un objectif : rechercher une information, utiliser un logiciel, produire un résultat intermédiaire puis le reprendre. Se distingue d&#x27;un modèle qui se contente de répondre à une requête isolée. AIFS (Artificial Intelligence Forecasting System)  Modèle de prévision météorologique par IA de l&#x27;ECMWF, entraîné sur des décennies de réanalyse. Il produit une prévision mondiale à dix jours pour un coût de calcul près de 600 000 fois inférieur à celui du modèle physique traditionnel. AlphaFold Système d&#x27;IA de DeepMind prédisant la forme tridimensionnelle d&#x27;une protéine à partir de la séquence de ses acides aminés. Il a produit plus de deux cents millions de structures prédites, librement accessibles. Apprentissage par renforcement ( reinforcement learning)  Méthode d&#x27;entraînement fondée sur un processus d&#x27;essais et d&#x27;erreurs au sein d&#x27;un environnement donné : le système teste des actions, reçoit une évaluation de leur résultat, et ajuste progressivement sa stratégie pour maximiser sa performance. Auto-attention / self -attention Mécanisme interne au Transformer permettant à chaque token de pondérer les autres tokens d&#x27;une séquence. Arena Score / Score Arena désigne principalement la note de classement Elo sur la plateforme de référence Chatbot Arena (LM Arena)  pour comparer les performances des modèles d&#x27;intelligence artificielle Biais (de l&#x27;IA) Déformation systématique des résultats produits par un modèle, héritée des données sur lesquelles il a été entraîné ou de la façon dont il a été conçu. Le biais n&#x27;est pas une erreur ponctuelle mais une tendance reproductible. CECR (Cadre européen commun de référence pour les langues)  Échelle de référence classant les niveaux de maîtrise d&#x27;une langue de A1 à C2. Utilisé ici comme paramètre de calibrage des contenus générés par Duolingo.</p>
+<p>Chatbot Agent conversationnel automatisé interagissant avec un utilisateur en langage naturel. Charge cognitive extrinsèque  Difficulté introduite par la manière dont une information ou une tâche est présentée, sans être liée au contenu à apprendre lui - même. Charge cognitive germane ou essentielle  Effort mental consacré à la compréhension et à la construction de connaissances. Charge cognitive intrinsèque Difficulté propre au contenu ou à la tâche à apprendre, liée notamment au nombre d’éléments à traiter et à leurs interactions. Cognitive offloading Délégation d&#x27;une partie du traitement cognitif à un outil externe. Deep learning (apprentissage profond) Sous-catégorie du machine learning fondée sur des réseaux de neurones à plusieurs couches. Dépendance structurelle Situation dans laquelle l&#x27;usage d&#x27;un outil ne relève plus d&#x27;un choix d&#x27;efficacité mais conditionne l&#x27;accès même au résultat. Se distingue de la simple commodité : sans l&#x27;outil, le résultat n&#x27;est pas seulement plus lent à obtenir, il devient inatteignable. Digital twin Modélisation numérique dynamique d&#x27;un objet, d&#x27;un processus ou d&#x27;un individu physique (cf. Jumeau numérique). Efficacité Atteindre l&#x27;objectif fixé. Critère binaire : la cible est atteinte ou elle ne l&#x27;est pas, indépendamment du coût engagé. Efficience Atteindre le même objectif en consommant moins de ressources : temps, argent, énergie, effort. Registre du rendement. Fiabilisation de la donnée  Opération consistant à vérifier qu&#x27;un chiffre produit automatiquement est cohérent avec ce que l&#x27;on sait par ailleurs de l&#x27;activité. Terme employé dans le cadre professionnel du service Pilotage de la performance. Fine-tuning Ajustement ciblé des poids d&#x27;un modèle pré -entraîné sur un jeu de données spécifique. Foundation model Grand modèle pré-entraîné servant de base à de multiples usages (cf. LLM).</p>
+<p>Franchissement de seuil Passage d&#x27;un régime où l&#x27;IA accélère un travail réalisable autrement à un régime où elle rend accessible un résultat hors de portée sans elle. Le mémoire en distingue deux types : le seuil d&#x27;échelle et le seuil de difficulté. Generative AI / IA générative IA produisant du contenu nouveau (texte, image, son, code). Hallucination Production par un modèle de langage d&#x27;une réponse formulée avec assurance mais fausse ou inventée. La difficulté tient moins à l&#x27;erreur qu&#x27;à sa plausibilité apparente. Hallucination *(renvoi)*  Terme déjà défini ci -dessus à l&#x27;entrée « Hallucination », mention conservée pour mémoire (à retirer si l&#x27;on supprime les doublons). Homogénéisation vers une erreur convaincante Expression désignant le risque de voir plusieurs utilisateurs équipés du même outil converger vers une même réponse erronée, présentée sous une forme suffisamment crédible pour désarmer la vigilance. Indice de confiance  Score associé à chaque prédiction produite par AlphaFold, indiquant la fiabilité estimée du résultat pour chaque acide aminé. Il permet de cibler les cas nécessitant une vérification expérimentale. Inférence Phase d&#x27;utilisation d&#x27;un modèle pour produire une sortie à partir d&#x27;une entrée. Jumeau numérique Modélisation informatique du comportement d&#x27;un individu ou d&#x27;un système réel, alimentée par des données individuelles, permettant de simuler des scénarios sans les faire subir à l&#x27;original. Chez Enduraw, une cinquantaine de variables physiologiques sont intégrées. Lean Logiciel d&#x27;assistance à la preuve qui contrôle mécaniquement chaque étape d&#x27;un raisonnement mathématique. Sa fonction ici est décisive : il rend la validité d&#x27;une preuve indépendante de la confiance accordée au système qui l&#x27;a produite. LLM (Large Language Model)  Modèle d&#x27;intelligence artificielle entraîné sur de très grands volumes de textes, qui convertit les mots en unités numériques puis prédit l&#x27;élément suivant le plus probable. ChatGPT, Claude et Mistral en sont des exemples. Machine learning Apprentissage automatique de règles à partir de données, sans programmation explicite.</p>
+<p>Modèle (IA) Ensemble constitué d&#x27;une architecture mathématique et des paramètres ajustés lors de l&#x27;entraînement. C&#x27;est le produit de l&#x27;apprentissage, distinct du programme classique en ce qu&#x27;il n&#x27;exécute pas des règles écrites à l&#x27;avance. Modèle de fondation  Francisation de « Foundation model » : grand modèle pré - entraîné servant de base à de multiples usages. Multimodal Modèle acceptant ou produisant plusieurs modalités (texte, image, son, vidéo). Neurone artificiel Unité de calcul élémentaire d&#x27;un réseau de neurones, inspirée du neurone biologique. Open source  Logiciel dont le code source est librement accessible, modifiable et redistribuable. Overfitting (surapprentissage) Phénomène où le modèle s&#x27;ajuste trop finement aux données d&#x27;entraînement et perd en généralisation. Paramètres (ou poids)  Valeurs numériques internes d&#x27;un modèle, ajustées automatiquement au cours de l&#x27;entraînement. Leur nombre, de l&#x27;ordre du milliard pour un LLM, détermine la capacité du modèle. Pattern Mot anglais : modèle, structure ou motif qui se répète de façon régulière. Performance créative ou artistique Dimension de la performance où la valeur d&#x27;une production tient à son originalité, sa charge expressive et l&#x27;engagement de son auteur. Critère subjectif. Performance sociale et humaine  Dimension collective de l&#x27;activité : qualité des relations de travail, engagement, transmission des savoirs, sens du travail. Difficilement mesurable. Performance sociétale et environnementale  Empreinte de l&#x27;activité : impact écologique, dimension éthique, contribution à l&#x27;intérêt général. Personnalisation Ajustement d&#x27;un résultat à une personne, un contexte ou un moment donné, par opposition à une production uniforme. Le mémoire distingue la personnalisation par sélection, où le système choisit dans un stock existant, et la personnalisation par génération, où le contenu est produit à la volée. Pipeline Chaîne orchestrée d&#x27;étapes de traitement, de la donnée brute jusqu&#x27;au résultat exploitable.</p>
+<p>Post-entraînement (post-training) Phase d&#x27;ajustement d&#x27;un modèle déjà entraîné, en vue d&#x27;une tâche précise. Netflix a ainsi post-entraîné le modèle Llama 3.1 8B pour la sélection de visuels. Pre-training (pré -entraînement) Phase initiale d&#x27;entraînement d&#x27;un modèle sur de très grands corpus non étiquetés. Prompt Instruction ou requête adressée à un modèle d&#x27;IA générative. Sa formulation conditionne directement la qualité de la réponse obtenue, ce qui en fait une compétence à part entière. Prompt engineering Compétence consistant à formuler les requêtes adressées à un modèle pour en optimiser la réponse. Protéine (repliement)  Chaîne d&#x27;acides aminés qui se replie dans l&#x27;espace pour adopter une forme tridimensionnelle. C&#x27;est cette forme, et non la liste des maillons, qui détermine sa fonction biologique. Qualité Atteindre l&#x27;objectif mieux : plus de précision, moins d&#x27;erreurs, plus de fiabilité. Dimension partiellement indépendante de l&#x27;efficacité et de l&#x27;efficience. Régime de performance Catégorie de gain apporté par l&#x27;IA, classée selon sa nature et non son intensité. Le mémoire en distingue trois : accélérer, rendre possible, personnaliser. Retrieval-Augmented Generation *(renvoi)* Développement déjà traité dans la table des abréviations à l&#x27;entrée « RAG », mention conservée pour mémoire (à retirer si l&#x27;on supprime les doublons). Rétropropagation Mécanisme de correction automatique des erreurs : à chaque écart entre la prédiction et la réponse attendue, un calcul ajuste légèrement les paramètres du modèle pour réduire cet écart. SBU (System Billing Unit)  Unité de mesure du coût de calcul utilisé par l&#x27;ECMWF. Permet de comparer la consommation de ressources entre modèles. Seuil d&#x27;échelle Verrou tenant au volume : la tâche est connue et maîtrisée, mais le nombre de cas à traiter la place hors de portée. Illustré par AlphaFold. Seuil de difficulté  Verrou tenant à la nature même du problème : ce n&#x27;est pas le volume qui bloque, mais le fait que personne n&#x27;ait su produire le résultat. Illustré par le problème de Navier–Stokes.</p>
+<p>Singularité (mathématique) Point où une grandeur devient infinie en un temps fini, rendant l&#x27;équation incapable de décrire une réalité physique. Enjeu central du problème de Navier–Stokes. Token Unité élémentaire de texte manipulée par un modèle de langage : un mot, une partie de mot ou un signe de ponctuation, converti en valeur numérique avant traitement. Tokenisation Découpage d&#x27;un texte en tokens exploitables par le modèle. Transfer learning Réutilisation d&#x27;un modèle pré-entraîné sur une nouvelle tâche, avec peu de données supplémentaires. Transformer Architecture de réseau de neurones introduite en 2017, fondement des grands modèles de langage actuels. Workload (charge de travail)  Volume de travail requis pour exécuter une tâche ou un ensemble de tâches.</p>
+<h2 id="glo-abrev">Description des abréviations</h2>
+<p>utilisées Abréviation Développé ADN Acide désoxyribonucléique, molécule porteuse de l&#x27;information génétique (contexte AlphaGenome, p. 94). AI4T3 Artificial Intelligence for Teachers and Teachers for AI , projet européen de formation des enseignants à l&#x27;IA (p. 59). AIFS Artificial Intelligence Forecasting System, modèle de prévision météorologique par IA de l&#x27;ECMWF. AlphaFold Système d&#x27;IA de DeepMind prédisant la forme 3D d&#x27;une protéine à partir de sa séquence d&#x27;acides aminés. AlphaGenome Modèle d&#x27;IA de DeepMind analysant de longues séquences d&#x27;ADN et prédisant l&#x27;effet de mutations génétiques (p. 94). AlphaGo Modèle d&#x27;IA de DeepMind ayant appris le jeu de Go par auto - affrontement (p. 22-23).</p>
+<p>API Application Programming Interface , interface logicielle permettant à deux systèmes d&#x27;échanger des données ou des services. BCG Boston Consulting Group , cabinet international de conseil en stratégie (p. 28). BTP *(détecté, non utilisé, écarté)* Bâtiment et travaux publics , sigle relevé mais non employé dans le mémoire (à retirer de la liste finale si confirmé). BTS SIO Brevet de Technicien Supérieur , Services Informatiques aux Organisations (p. 61). CAESAR II Outil interne Crédit Agricole d&#x27;assistant documentaire s&#x27;appuyant sur l&#x27;IA générative et le RAG (p. 31). CASP Critical Assessment of protein Structure Prediction, compétition internationale de prédiction du repliement des protéines. CEA Commissariat à l&#x27;énergie atomique et aux énergies alternatives. CEO Chief Executive Officer , dirigeant principal d’une entreprise, généralement traduit par « directeur général ». CECR Cadre européen commun de référence pour les langues. CHU Centre hospitalier universitaire. CNAM Conservatoire national des arts et métiers , opérateur de formation (p. 100). CNN Convolutional Neural Network, réseau de neurones convolutif, dédié au traitement d&#x27;images. CNRS Centre national de la recherche scientifique. COB.AI, Scopes Outil Crédit Agricole d&#x27;automatisation des contrôles documentaires (p. 62). CR Caisse régionale (Crédit Agricole).</p>
+<p>DALL-E Modèle de diffusion d&#x27;OpenAI générant des images à partir d&#x27;un prompt textuel. DARES Direction de l&#x27;animation de la recherche, des études et des statistiques (ministère du Travail, p. 74). DeepMind Laboratoire d&#x27;IA de Google, à l&#x27;origine d&#x27; AlphaFold, AlphaGo, GraphCast, LearnLM (p. 21 et s.). EBI European Bioinformatics Institute , institut européen de bio - informatique (EMBL-EBI). ECMWF European Centre for Medium -Range Weather Forecasts , Centre européen pour les prévisions météorologiques à moyen terme. EMBL European Molecular Biology Laboratory , laboratoire européen de biologie moléculaire. EMBL-EBI European Molecular Biology Laboratory , European Bioinformatics Institute (p. 43). ENSEA École nationale supérieure de l&#x27;électronique et de ses applications (p. 44). EPS Éducation physique et sportive , discipline d&#x27;enseignement (p. 85). ERA5 ECMWF Reanalysis v5 , jeu de données de réanalyse climatique. FELIX Assistant conversationnel génératif interne et sécurisé déployé au Crédit Agricole (p. 31, 32, 60, 62). FFA Fédération française d&#x27;athlétisme (p. 44). GitHub Copilot Outil d&#x27;assistance au code développé par GitHub/OpenAI (p. 27, 32, 62). Google Entreprise technologique états -unienne, éditeur de Gemini, LearnLM, DeepMind. GPS Global Positioning System , système de géolocalisation par satellite (p. 103-104).</p>
+<p>GPT-6 Astra Modèle interne d&#x27;OpenAI cité pour la résolution du problème de Navier–Stokes (p. 41). GraphCast Modèle d&#x27;IA de DeepMind pour la prévision météorologique mondiale (p. 21, 23). HEC Paris / HEC Haute école de commerce Paris, grande école de management (p. 44, 98). HRV Heart Rate Variability , variabilité de la fréquence cardiaque, indicateur de charge d&#x27;entraînement (p. 103). IA Intelligence artificielle. IBM International Business Machines , entreprise technologique états-unienne. IFS Integrated Forecasting System, modèle physique de prévision de l&#x27;ECMWF. INA Institut national de l&#x27;audiovisuel (p. 93). INRIA Institut national de recherche en sciences et technologies du numérique. INSEE Institut national de la statistique et des études économiques. IoT Internet of Things , Internet des objets, réseau d&#x27;objets connectés producteurs de données (p. 23). IPSSI Institut privé de préparation aux métiers du numérique , école de l&#x27;auteur du mémoire. LCP La Chaîne parlementaire , chaîne de télévision française diffusant les débats législatifs (p. 91). LearnLM Famille de modèles de Google entraînés spécifiquement pour des usages pédagogiques (p. 51-52). LINA Language Adaptative, application d&#x27;apprentissage des langues développée dans le cadre du mémoire. LLM Large Language Model, grand modèle de langage.</p>
+<p>Meta Entreprise technologique états-unienne, éditeur de Facebook, Instagram, WhatsApp (p. 46-48). MIA Outil Crédit Agricole d&#x27;aide à la rédaction des courriels pour le réseau commercial (p. 62). Mistral AI Entreprise française éditrice de grands modèles de langage (Mistral, Mixtral). MIT Massachusetts Institute of Technology , institut de technologie états-unien (p. 30, 67, 70). NASA National Aeronautics and Space Administration , agence spatiale civile états-unienne (p. 35, 38). NSI Numérique et Sciences Informatiques , spécialité de lycée (p. 61). NYU New York University, université états-unienne (p. 42). OpenAI Entreprise états-unienne éditrice des modèles GPT, ChatGPT, DALL-E, Whisper. PMT Plan moyen terme. PowerPoint Logiciel de présentation de Microsoft (p. 33). Quantum Outil Crédit Agricole de transformation de requêtes en langage naturel en visualisations de données (p. 31). RAG Retrieval-Augmented Generation, architecture d&#x27;IA générative enrichie par la recherche documentaire. RETEX Retour d’expérience, analyse d’une expérience destinée à en tirer des enseignements. RGB Red, Green, Blue (« rouge, vert, bleu »), modèle de représentation des couleurs à partir de trois composantes. RL Reinforcement Learning, apprentissage par renforcement. ROI Return On Investment, retour sur investissement. RSE Responsabilité sociétale des entreprises (p. 74, 75).</p>
+<p>SAS Statistical Analysis System, logiciel d&#x27;analyse statistique (p. 32, 101). SBU System Billing Unit, unité de mesure du coût de calcul utilisée par l&#x27;ECMWF. SIO Services Informatiques aux Organisations , option du BTS (cf. BTS SIO). SSCI Social Sciences Citation Index , index bibliométrique des sciences sociales (p. 54-55). TotalEnergies Entreprise française du secteur de l&#x27;énergie, citée comme terrain d&#x27;expérimentation (p. 34). UC University of California, université publique états-unienne (UC Berkeley, p. 44, 98). UE Union européenne. UNESCO United Nations Educational, Scientific and Cultural Organization, organisation internationale pour l&#x27;éducation, la science et la culture. USA United States of America, États-Unis d&#x27;Amérique. USAP Union sportive arlésienne de Perpignan , club de rugby professionnel (p. 34, 71, 85, 102-105). UTC Coordinated Universal Time , temps universel coordonné, fuseau horaire de référence (p. 38). UTMB Ultra-Trail du Mont-Blanc, course de trail de référence. VAK Visuel, Auditif, Kinesthésique , modèle de préférences d&#x27;apprentissage (p. 78). VBA Visual Basic for Applications , langage de programmation intégré aux applications Microsoft Office (p. 32, 101). WhatsApp Application de messagerie instantanée éditée par Meta (p. 46). WoS Web of Science , base de données bibliographique et citationnelle (p. 54-55).</p>
+<p>X-HEC Paris Programme conjoint École polytechnique, HEC Paris (p. 98). YouTube Plateforme de partage et de streaming vidéo éditée par Google (p. 30, 38, 44, 90, 91, 98).</p>
+<p>Glossaire Définition des termes utilisés Affective computing Branche de l&#x27;IA détectant/identifiant ou simulant des émotions humaines. Agent (IA) Système d&#x27;IA capable d&#x27;enchaîner plusieurs actions de façon autonome pour atteindre un objectif : rechercher une information, utiliser un logiciel, produire un résultat intermédiaire puis le reprendre. Se distingue d&#x27;un modèle qui se contente de répondre à une requête isolée. AIFS (Artificial Intelligence Forecasting System)  Modèle de prévision météorologique par IA de l&#x27;ECMWF, entraîné sur des décennies de réanalyse. Il produit une prévision mondiale à dix jours pour un coût de calcul près de 600 000 fois inférieur à celui du modèle physique traditionnel. AlphaFold Système d&#x27;IA de DeepMind prédisant la forme tridimensionnelle d&#x27;une protéine à partir de la séquence de ses acides aminés. Il a produit plus de deux cents millions de structures prédites, librement accessibles. Apprentissage par renforcement (reinforcement learning ) Méthode d&#x27;entraînement fondée sur un processus d&#x27;essais et d&#x27;erreurs au sein d&#x27;un environnement donné : le système teste des actions, reçoit une évaluation de leur résultat, et ajuste progressivement sa stratégie pour maximiser sa performance. Auto-attention / self -attention Mécanisme interne au Transformer permettant à chaque token de pondérer les autres tokens d&#x27;une séquence. Arena Score / Score Arena désigne principalement la note de classement Elo sur la plateforme de référence Chatbot Arena (LM Arena)  pour comparer les performances des modèles d&#x27;intelligence artificielle Biais (de l&#x27;IA) Déformation systématique des résultats produits par un modèle, héritée des données sur lesquelles il a été entraîné ou de la façon dont il a été conçu. Le biais n&#x27;est pas une erreur ponctuelle mais une tendance reproductible.</p>
+<p>CECR (Cadre européen commun de référence pour les langues)  Échelle de référence classant les niveaux de maîtrise d&#x27;une langue de A1 à C2. Utilisé ici comme paramètre de calibrage des contenus générés par Duolingo. Chatbot Agent conversationnel automatisé interagissant avec un utilisateur en langage naturel. Charge cognitive extrinsèque  Difficulté introduite par la manière dont une information ou une tâche est présentée, sans être liée au contenu à apprendre lui - même. Charge cognitive germane ou essentielle  Effort mental consacré à la compréhension et à la construction de connaissances. Charge cognitive intrinsèque Difficulté propre au contenu ou à la tâche à apprendre, liée notamment au nombre d’éléments à traiter et à leurs interactions. Cognitive offloading Délégation d&#x27;une partie du traitement cognitif à un outil externe. Deep learning (apprentissage profond) Sous-catégorie du machine learning fondée sur des réseaux de neurones à plusieurs couches. Dépendance structurelle Situation dans laquelle l&#x27;usage d&#x27;un outil ne relève plus d&#x27;un choix d&#x27;efficacité mais conditionne l&#x27;accès même au résultat. Se distingue de la simple commodité : sans l&#x27;outil, le résultat n&#x27;est pas seulement plus lent à obtenir, il devient inatteignable. Digital twin Modélisation numérique dynamique d&#x27;un objet, d&#x27;un processus ou d&#x27;un individu physique (cf. Jumeau numérique). Efficacité Atteindre l&#x27;objectif fixé. Critère binaire : la cible est atteinte ou elle ne l&#x27;est pas, indépendamment du coût engagé. Efficience Atteindre le même objectif en consommant moins de ressources : temps, argent, énergie, effort. Registre du rendement. Fiabilisation de la donnée  Opération consistant à vérifier qu&#x27;un chiffre produit automatiquement est cohérent avec ce que l&#x27;on sait par ailleurs de l&#x27;activité. Terme employé dans le cadre professionnel du service Pilotage de la performance. Fine-tuning Ajustement ciblé des poids d&#x27;un modèle pré -entraîné sur un jeu de données spécifique.</p>
+<p>Foundation model Grand modèle pré-entraîné servant de base à de multiples usages (cf. LLM). Franchissement de seuil Passage d&#x27;un régime où l&#x27;IA accélère un travail réalisable autrement à un régime où elle rend accessible un résultat hors de portée sans elle. Le mémoire en distingue deux types : le seuil d&#x27;échelle et le seuil de difficulté. Generative AI / IA générative IA produisant du contenu nouveau (texte, image, son, code). Hallucination Production par un modèle de langage d&#x27;une réponse formulée avec assurance mais fausse ou inventée. La difficulté tient moins à l&#x27;erreur qu&#x27;à sa plausibilité apparente. Hallucination *(renvoi)*  Terme déjà défini ci -dessus à l&#x27;entrée « Hallucination », mention conservée pour mémoire (à retirer si l&#x27;on supprime les doublons). Homogénéisation vers une erreur convaincante Expression désignant le risque de voir plusieurs utilisateurs équipés du même outil converger vers une même réponse erronée, présentée sous une forme suffisamment crédible pour désarmer la vigilance. Indice de confiance  Score associé à chaque prédiction produite par AlphaFold, indiquant la fiabilité estimée du résultat pour chaque acide aminé. Il permet de cibler les cas nécessitant une vérification expérimentale. Inférence Phase d&#x27;utilisation d&#x27;un modèle pour produire une sortie à partir d&#x27;une entrée. Jumeau numérique Modélisation informatique du comportement d&#x27;un individu ou d&#x27;un système réel, alimentée par des données individuelles, permettant de simuler des scénarios sans les faire subir à l&#x27;original. Chez Enduraw, une cinquantaine de variables physiologiques sont intégrées. Lean Logiciel d&#x27;assistance à la preuve qui contrôle mécaniquement chaque étape d&#x27;un raisonnement mathématique. Sa fonction ici est décisive : il rend la validité d&#x27;une preuve indépendante de la confiance accordée au système qui l&#x27;a produite. LLM (Large Language Model)  Modèle d&#x27;intelligence artificielle entraîné sur de très grands volumes de textes, qui convertit les mots en unités numériques puis prédit l&#x27;élément suivant le plus probable. ChatGPT, Claude et Mistral en sont des exemples. Machine learning Apprentissage automatique de règles à partir de données, sans programmation explicite.</p>
+<p>Modèle (IA) Ensemble constitué d&#x27;une architecture mathématique et des paramètres ajustés lors de l&#x27;entraînement. C&#x27;est le produit de l&#x27;apprentissage, distinct du programme classique en ce qu&#x27;il n&#x27;exécute pas des règles écrites à l&#x27;avance. Modèle de fondation  Francisation de « Foundation model » : grand modèle pré - entraîné servant de base à de multiples usages. Multimodal Modèle acceptant ou produisant plusieurs modalités (texte, image, son, vidéo). Neurone artificiel Unité de calcul élémentaire d&#x27;un réseau de neurones, inspirée du neurone biologique. Open source  Logiciel dont le code source est librement accessible, modifiable et redistribuable. Overfitting (surapprentissage) Phénomène où le modèle s&#x27;ajuste trop finement aux données d&#x27;entraînement et perd en généralisation. Paramètres (ou poids)  Valeurs numériques internes d&#x27;un modèle, ajustées automatiquement au cours de l&#x27;entraînement. Leur nombre, de l&#x27;ordre du milliard pour un LLM, détermine la capacité du modèle. Pattern Mot anglais : modèle, structure ou motif qui se répète de façon régulière. Performance créative ou artistique Dimension de la performance où la valeur d&#x27;une production tient à son originalité, sa charge expressive et l&#x27;engagement de son auteur. Critère subjectif. Performance sociale et humaine  Dimension collective de l&#x27;activité : qualité des relations de travail, engagement, transmission des savoirs, sens du travail. Difficilement mesurable. Performance sociétale et environnementale  Empreinte de l&#x27;activité : impact écologique, dimension éthique, contribution à l&#x27;intérêt général. Personnalisation Ajustement d&#x27;un résultat à une personne, un contexte ou un moment donné, par opposition à une production uniforme. Le mémoire distingue la personnalisation par sélection, où le système choisit dans un stock existant, et la personnalisation par génération, où le contenu est produit à la volée. Pipeline Chaîne orchestrée d&#x27;étapes de traitement, de la donnée brute jusqu&#x27;au résultat exploitable.</p>
+<p>Post-entraînement (post-training) Phase d&#x27;ajustement d&#x27;un modèle déjà entraîné, en vue d&#x27;une tâche précise. Netflix a ainsi post-entraîné le modèle Llama 3.1 8B pour la sélection de visuels. Pre-training (pré -entraînement) Phase initiale d&#x27;entraînement d&#x27;un modèle sur de très grands corpus non étiquetés. Prompt Instruction ou requête adressée à un modèle d&#x27;IA générative. Sa formulation conditionne directement la qualité de la réponse obtenue, ce qui en fait une compétence à part entière. Prompt engineering Compétence consistant à formuler les requêtes adressées à un modèle pour en optimiser la réponse. Protéine (repliement)  Chaîne d&#x27;acides aminés qui se replie dans l&#x27;espace pour adopter une forme tridimensionnelle. C&#x27;est cette forme, et non la liste des maillons, qui détermine sa fonction biologique. Qualité Atteindre l&#x27;objectif mieux : plus de précision, moins d&#x27;erreurs, plus de fiabilité. Dimension partiellement indépendante de l&#x27;efficacité et de l&#x27;efficience. Régime de performance Catégorie de gain apporté par l&#x27;IA, classée selon sa nature et non son intensité. Le mémoire en distingue trois : accélérer, rendre possible, personnaliser. Retrieval-Augmented Generation *(renvoi)* Développement déjà traité dans la table des abréviations à l&#x27;entrée « RAG », mention conservée pour mémoire (à retirer si l&#x27;on supprime les doublons). Rétropropagation Mécanisme de correction automatique des erreurs : à chaque écart entre la prédiction et la réponse attendue, un calcul ajuste légèrement les paramètres du modèle pour réduire cet écart. SBU (System Billing Unit)  Unité de mesure du coût de calcul utilisé par l&#x27;ECMWF. Permet de comparer la consommation de ressources entre modèles. Seuil d&#x27;échelle Verrou tenant au volume : la tâche est connue et maîtrisée, mais le nombre de cas à traiter la place hors de portée. Illustré par AlphaFold. Seuil de difficulté  Verrou tenant à la nature même du problème : ce n&#x27;est pas le volume qui bloque, mais le fait que personne n&#x27;ait su produire le résultat. Illustré par le problème de Navier–Stokes.</p>
+<p>Singularité (mathématique) Point où une grandeur devient infinie en un temps fini, rendant l&#x27;équation incapable de décrire une réalité physique. Enjeu central du problème de Navier–Stokes. Token Unité élémentaire de texte manipulée par un modèle de langage : un mot, une partie de mot ou un signe de ponctuation, converti en valeur numérique avant traitement. Tokenisation Découpage d&#x27;un texte en tokens exploitables par le modèle. Transfer learning Réutilisation d&#x27;un modèle pré-entraîné sur une nouvelle tâche, avec peu de données supplémentaires. Transformer Architecture de réseau de neurones introduite en 2017, fondement des grands modèles de langage actuels. Workload (charge de travail)  Volume de travail requis pour exécuter une tâche ou un ensemble de tâches.</p>
+      </article>
+
+      <!-- Navigation séquentielle bas de page -->
+      <footer class="chapter-nav-footer">
+        <div class="chapter-nav-grid">
+          
+        <a href="conclusion.html" class="chapter-nav-card prev">
+          <span class="chapter-nav-direction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Partie précédente</span>
+          </span>
+          <span class="chapter-nav-title">Bilan, perspectives et conclusion générale</span>
+          <span class="chapter-nav-time">~7 min de lecture</span>
+        </a>
+        
+          
+        <a href="bibliographie.html" class="chapter-nav-card next">
+          <span class="chapter-nav-direction">
+            <span>Partie suivante</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+          <span class="chapter-nav-title">Bibliographie et webographie annotée</span>
+          <span class="chapter-nav-time">~25 min de lecture</span>
+        </a>
+        
+        </div>
+
+        <div class="chapter-nav-bottom-actions">
+          <a href="../index.html#sommaire" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Retour au sommaire général</span>
+          </a>
+
+          <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Télécharger le mémoire complet (PDF)</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand">
+            <span class="brand-badge">Mémoire</span>
+            <span>Thomas ALMODOVAR</span>
+          </div>
+          <p class="footer-brand-desc">
+            Publication numérique universitaire du mémoire de Mastère Dev, Data & IA (École IPSSI - EISI, promotion 2025-2026). Ce diplôme a été réalisé en alternance au sein du service Pilotage de la performance de Crédit Agricole Sud Méditerranée.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Accueil du site</a></li>
+            <li><a href="../index.html#presentation">Présentation</a></li>
+            <li><a href="../index.html#sommaire">Sommaire général</a></li>
+            <li><a href="../index.html#a-propos">À propos & Métadonnées</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Document</div>
+          <ul class="footer-links">
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf">Télécharger le PDF original (2,08 Mo)</a></li>
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank">Consulter le PDF en ligne</a></li>
+            <li><a href="glossaire.html">Glossaire des termes</a></li>
+            <li><a href="bibliographie.html">Bibliographie & Webographie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thomas ALMODOVAR — Tous droits de reproduction et de citation réservés selon les règles universitaires.</div>
+        <div>Conception éditoriale respectant les critères d'accessibilité WCAG 2.2 AA.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/reader.js"></script>
+</body>
+</html>

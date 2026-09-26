@@ -1,0 +1,12 @@
+# Fichiers temporaires Python
+__pycache__/
+*.pyc
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Duplicata vidéo/PDF racine et doublons avec accents
+/video_arriere_plan.mp4
+/Mémoire - ALMODOVAR Thomas.pdf
+assets/pdf/Mémoire - ALMODOVAR Thomas.pdf

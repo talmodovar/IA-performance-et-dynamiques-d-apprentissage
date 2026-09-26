@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" data-text-size="standard">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partie 0 — Fondamentaux : Comprendre l&#x27;IA | Mémoire de Thomas ALMODOVAR</title>
+  <meta name="description" content="Socle conceptuel traçant l&#x27;histoire de l&#x27;IA depuis les systèmes experts jusqu&#x27;aux architectures Transformers et à la multimodalité actuelle. Analyse comparative">
+  <meta name="author" content="Thomas ALMODOVAR">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Partie 0 — Fondamentaux : Comprendre l&#x27;IA">
+  <meta property="og:description" content="Socle conceptuel traçant l&#x27;histoire de l&#x27;IA depuis les systèmes experts jusqu&#x27;aux architectures Transformers et à la multimodalité actuelle. Analyse comparative">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/reader.css">
+</head>
+<body>
+  <!-- Lien d'évitement WCAG -->
+  <a href="#main-reading-content" class="skip-link">Passer directement au texte du chapitre</a>
+
+  <!-- En-tête du site -->
+  <header class="site-header" role="banner">
+    <div class="container site-header-inner">
+      <a href="../index.html" class="brand" aria-label="Retour à l'accueil du mémoire">
+        <span class="brand-badge">Mémoire</span>
+        <span>Thomas ALMODOVAR</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html" class="nav-link">Accueil</a>
+        <a href="../index.html#presentation" class="nav-link">Présentation</a>
+        <a href="../index.html#sommaire" class="nav-link">Sommaire général</a>
+        <a href="../index.html#a-propos" class="nav-link">À propos & Métadonnées</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-download-header" title="Consulter le mémoire complet au format PDF dans un nouvel onglet">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Consulter le PDF en ligne</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le menu de navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Progression de lecture -->
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-bar"></div>
+    </div>
+  </header>
+
+  <!-- Barre d'outils de lecture (fil d'ariane & réglages) -->
+  <aside class="reader-toolbar" aria-label="Commandes de confort de lecture">
+    <div class="container reader-toolbar-inner">
+      <div class="reader-toolbar-left">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="../index.html#sommaire">Sommaire</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" aria-current="page">Fondamentaux : Comprendre l&#x27;IA</span>
+        </nav>
+      </div>
+
+      <div class="reader-controls">
+        <button type="button" class="btn-toc-toggle" id="btnMobileToc" aria-expanded="false" aria-label="Afficher le sommaire de la partie">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <span>Sommaire</span>
+        </button>
+
+        <!-- Sélecteur de Thème -->
+        <div class="control-group" role="group" aria-label="Sélection du thème de lecture">
+          <button type="button" class="control-btn active" data-set-theme="light" aria-pressed="true" title="Thème clair ivoire">Clair</button>
+          <button type="button" class="control-btn" data-set-theme="sepia" aria-pressed="false" title="Thème sépia ambré">Sépia</button>
+          <button type="button" class="control-btn" data-set-theme="dark" aria-pressed="false" title="Thème sombre onyx">Sombre</button>
+        </div>
+
+        <!-- Sélecteur de Taille de police -->
+        <div class="control-group" role="group" aria-label="Taille de typographie">
+          <button type="button" class="control-btn" data-set-size="small" aria-pressed="false" title="Petite taille (17px)">A-</button>
+          <button type="button" class="control-btn active" data-set-size="standard" aria-pressed="true" title="Taille standard (19px)">A</button>
+          <button type="button" class="control-btn" data-set-size="large" aria-pressed="false" title="Grande taille (21px)">A+</button>
+        </div>
+
+        <!-- Mode concentration -->
+        <button type="button" class="btn-zen-mode" id="btnZenMode" aria-pressed="false" title="Activer le mode concentration sans distraction (Touche Z)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+          <span class="zen-label">Mode Zen</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Disposition principale de lecture -->
+  <div class="reader-layout">
+    <!-- Sommaire latéral fixe/sticky -->
+    <nav class="reader-sidebar" aria-label="Sommaire de la partie">
+      <div class="reader-sidebar-title">Plan de cette partie</div>
+      <ul class="chapter-toc-list">
+        <li class="chapter-toc-item"><a href="#sec-0-1" class="chapter-toc-link">0.1 Définition et histoire de l&#x27;intelligence artificielle</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-1-1" class="chapter-toc-link">Qu&#x27;est-ce que l&#x27;IA ?</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-1-2" class="chapter-toc-link">IA versus programme informatique classique</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-1-3" class="chapter-toc-link">Histoire et chronologie de l&#x27;IA</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-1-4" class="chapter-toc-link">Évolution récente des performances</a></li>
+<li class="chapter-toc-item"><a href="#sec-0-2" class="chapter-toc-link">0.2 Panorama des grandes familles de technologies IA</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-1" class="chapter-toc-link">Les grands modèles de langage (LLM)</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-2" class="chapter-toc-link">Les réseaux de neurones convolutifs (CNN)</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-3" class="chapter-toc-link">L&#x27;IA générative au-delà du texte</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-4" class="chapter-toc-link">L&#x27;IA prédictive et analytique</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-5" class="chapter-toc-link">L&#x27;apprentissage par renforcement</a></li>
+<li class="chapter-toc-item" style="padding-left: 12px;"><a href="#sub-0-2-6" class="chapter-toc-link">Cas d&#x27;usages</a></li>
+      </ul>
+      <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+        <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank" class="btn-secondary-outline" style="width: 100%; justify-content: center; font-size: 0.825rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Ouvrir en PDF</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Corps de lecture principal -->
+    <main id="main-reading-content" class="reader-content" role="main">
+      <header class="chapter-header">
+        <div class="chapter-part-num">Socle conceptuel</div>
+        <h1 class="chapter-title">Partie 0 — Fondamentaux : Comprendre l&#x27;IA</h1>
+        <p class="chapter-subtitle">Histoire, rupture des transformers, familles technologiques et évolution des performances</p>
+
+        <div class="chapter-meta-row">
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>~8 min de lecture (1 606 mots)</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Thomas ALMODOVAR</span>
+          </span>
+          <span class="chapter-meta-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>École IPSSI — 2025-2026</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Synthèse éditoriale identifiée -->
+      <section class="editorial-chapter-summary" aria-label="Synthèse éditoriale de la partie">
+        <div class="summary-heading">
+          <span>Points clés du chapitre</span>
+          <span class="summary-badge">Synthèse éditoriale à valider</span>
+        </div>
+        <p>Socle conceptuel traçant l&#x27;histoire de l&#x27;IA depuis les systèmes experts jusqu&#x27;aux architectures Transformers et à la multimodalité actuelle. Analyse comparative entre programmation classique déterministe et modèles statistiques d&#x27;apprentissage.</p>
+      </section>
+
+      <!-- Texte intégral du mémoire -->
+      <article class="chapter-body-text">
+        <p>PARTIE 0, FONDAMENTAUX : Comprendre l&#x27;IA 0.1 Définition et histoire et de l&#x27;intelligence artificielle</p>
+<h3 id="sub-0-1-1">Qu&#x27;est-ce que l&#x27;IA ?</h3>
+<p>L&#x27;Intelligence Artificielle (IA) est un système capable d&#x27;apprendre et d&#x27;adapter son comportement en fonction des expériences. Le système se compose principalement d&#x27;une formule mathématique, qui permet de prédire une réponse en fonction d&#x27;une entrée. Un programme d&#x27;entraînement compare les prédictions de la formule avec la réalité, puis déclenche un ajustement automatique en fonction de la précision des réponses précédentes. On dit que le programme ajuste les paramètres et les poids de la formule mathématique. Plus concrètement : une IA apprend par essai-erreur répétés, exactement comme un enfant. Exemple 1 : Imaginez qu&#x27;on montre à une IA mille photos de chats et de chiens, en lui indiquant à chaque fois : &quot;Ceci est un chat&quot; ou &quot;Ceci est un chien&quot;. À la première photo, l&#x27;IA fait une hypothèse complètement aléatoire : &quot;C&#x27;est... un chien ?&quot; Mais c&#x27;est faux. L&#x27;IA détecte son erreur, puis ajuste légèrement ses paramètres ou poids. À la deuxième photo, elle fait une meilleure hypothèse. À la centième photo, elle commence à reconnaître les oreilles des chats. À la millième, elle atteint une meilleure précision. Plus on lui montre de photos, plus elle devient forte. Exemple 2 : Imaginez qu&#x27;on montre à une IA des milliers de conversations humaines normales. Chaque fois, on lui demande : &quot;Prédis le mot suivant de cette phrase.&quot; On lui présente par exemple : « Bonjour, comment ça... »  À la première tentative, l&#x27;IA fait une hypothèse aléatoire : « Bonjour, comment ça marche ? » Mais la vraie réponse dans la conversation était « va ». C&#x27;est faux. L&#x27;IA détecte son erreur et ajuste ses</p>
+<p>paramètres. À la 10ème tentative sur une phrase similaire, elle prédit mieux. À la 100ème fois qu&#x27;elle voit ce schéma, elle commence à comprendre que « comment ça » est suivi très souvent par « va ». Techniquement, l&#x27;IA contient une formule mathématique complexe avec des milliers ou des millions de réglages internes , les &quot;poids&quot;. Chaque erreur déclenche un calcul mathématique qui ajuste légèrement ces réglages. Ce processus s&#x27;appelle la rétropropagation un système de correction d&#x27;erreurs automatisé qui modifie les poids pour réduire l&#x27;erreur. C&#x27;est cette capacité d&#x27;apprentissage continu, sans qu&#x27;un humain ait à intervenir, qui fait toute la différence avec un programme classique.</p>
+<h3 id="sub-0-1-2">IA versus programme informatique classique</h3>
+<p>Un programme informatique classique repose sur une logique déterministe : le développeur définit, en amont, un ensemble de règles et d&#x27;instructions précises que la machine doit suivre pour chaque situation possible. Chaque étape du raisonnement est explici te, codée noir sur blanc, et le programme se contente de l&#x27;exécuter fidèlement. Ainsi, pour une même donnée en entrée, le résultat produit sera toujours strictement identique. C&#x27;est le cas, par exemple, d&#x27;un logiciel de déclaration d&#x27;impôts : celui-ci appl ique mécaniquement des formules et des seuils fixés par la loi pour calculer un montant, sans jamais dévier de la règle programmée. L&#x27;intelligence artificielle, à l&#x27;inverse, ne suit pas de règles préétablies : elle apprend à partir de données, en repérant des régularités, pour produire des résultats par elle - même, selon une logique probabiliste plutôt que strictement logique.</p>
+<h3 id="sub-0-1-3">Histoire et chronologie de l&#x27;IA</h3>
+<p>Les premières recherches importantes commencent dans les années 1950 . Alan Turing se demande si une machine peut imiter l’intelligence humaine. Les premiers programmes savent résoudre des problèmes de logique, jouer aux échecs ou traduire des phrases simples. Ils fonctionnent grâce à des règles programmées à l’avance : « si ceci se produit, alors faire cela ». Dans les années 1970 et 1980, les systèmes experts apparaissent. Ils reproduisent les connaissances d’un spécialiste. Par exemple, le système médical MYCIN pouvait</p>
+<p>assister les médecins dans le diagnostic et le traitement des maladies infectieuses du sang. Dans l’industrie, d’autres systèmes permettaient de trouver l’origine d’une panne en posant des questions sur une machine. Ces systèmes restaient cependant limités, car ils ne savaient pas réellement apprendre seuls. À partir des années 1990 et 2000 , l’IA progresse grâce à des ordinateurs plus puissants. L’apprentissage automatique permet aux machines d’apprendre à partir d’exemples. Par exemple, des réseaux de neurones ont été utilisés pour reconnaître automatiquement des chiffres manuscrits sur des chèques ou des codes postaux. (Article du National Library of Médicine, site du gouvernement américain  : pubmed.ncbi.nlm.nih.gov)1. En 1997, l’ordinateur Deep Blue bat le champion d’échecs Garry Kasparov. Depuis les années 2010, les réseaux de neurones artificiels permettent de grandes avancées. Ils analysent les informations en plusieurs étapes : une IA peut ainsi repérer des formes dans une image, puis reconnaître un objet. (Des chercheurs testent un comptage automatisé de poisson via IA, lemag)2. Elle est aussi  utilisée pour la traduction automatique, les assistants vocaux, les recommandations de vidéos et l’aide au diagnostic médical. Aujourd’hui, les IA génératives peuvent créer du texte, des images, de la musique ou du code. Les recherches portent notamment sur les IA capables d’effectuer plusieurs étapes seules, par exemple rechercher des informations, utiliser un logiciel ou aider à programmer. En France et en Europe, des acteurs comme Mistral AI, Hugging Face, Inria, le CNRS et le CEA participent à leur développement. L’Union européenne a également mis en place l’ AI Act, un règlement qui encadre l’utilisation de l’IA selon son niveau de risque. Il vise notamment à protéger les citoyens, renforcer la transparence et interdire certaines pratiques dangereuses3. 1S. Knerr, L. Personnaz, G. Dreyfus, “Handwritten digit recognition by neural networks with single -layer training” , 30 November 1992 https://ieeexplore.ieee.org/document/165597 2Le MAG, Olivier Blot, “IA et caméras pour compter les poissons des grands fonds”, 09/06/2025, https://lemag.ird.fr/fr/ia-et-cameras-pour-compter-les-poissons-des- grands-fonds</p>
+<p>3European Comission,  30 July 2024,  “AI Act”  https://digital- strategy.ec.europa.eu/en/factpages/ai-act</p>
+<p>Evolution récente des performances</p>
+<p>Figure 1, Top model performance is converging, with 4 companies now clustered within 25 Elo points (inspired by chess ratings) when rated against one another by human voting in the Arena Leaderboard and benchmark.  The 2026 AI Index Report Les performances des modèles d’IA ont fortement augmenté au cours de ces 3 dernières années. Les plus performants se sont fortement rapprochés au sommet du classement Arena : alors qu’OpenAI dominait nettement au début de 2023, l’écart s’est réduit avec les autres acteurs. Le score Arena correspond à une note obtenue grâce à des comparaisons entre modèles : des utilisateurs évaluent les réponses produites par plusieurs IA, puis un système de classement inspiré des échecs attribue davantage de points aux modèles qui remportent le plus souvent ces confrontations. 0.2</p>
+<h2 id="sec-0-2">0.2 Panorama des grandes familles de technologies IA</h2>
+<h3 id="sub-0-2-1">Les grands modèles de langage (LLM)</h3>
+<p>(LLM) Un LLM (Large Language Model) applique le schéma décrit précédemment, chaque mot est converti en tokens, puis en nombre¹. Ces nombres traversent une architecture Transformer comportant plusieurs milliards de paramètres, qui produit en sortie une</p>
+<p>prédiction du token suivant le plus probable. L&#x27;apprentissage se fait sur de la donnée issue d&#x27;ouvrages, d&#x27;articles et de contenus web. ChatGPT (OpenAI), Claude (Anthropic) et Mistral (Mistral AI) sont des LLM.</p>
+<h3 id="sub-0-2-2">Les réseaux de neurones convolutifs (CNN)</h3>
+<p>(CNN) Le Convolutional Neural Network s&#x27;applique à l&#x27;image , chaque pixel devient une valeur numérique  (matrice RGB )1,2, qui traverse des couches de convolution détectant d&#x27;abord des motifs simples (contours, formes) puis des éléments plus complexes (yeux, oreilles, objets), pour aboutir à une prédiction. Ces modèles équipent aujourd&#x27;hui la reconnaissance faciale, le diagnostic médical par imagerie ou la détection d&#x27;objets pour les véhicules autonomes.</p>
+<p>Figure 2- Comment les couleurs sont transformées en couleurs1</p>
+<p>Figure 3, Comment les couleurs sont transformées en couleurs part21</p>
+<h3 id="sub-0-2-3">L&#x27;IA générative au-delà du texte</h3>
+<p>Les modèles de diffusion  (DALL-E, Midjourney, Stable Diffusion) suivent la même logique, une description textuelle est convertie en tokens, qui guident la génération d&#x27;une image ou audio. Sur l&#x27;audio, deux directions existent : la synthèse vocale (texte</p>
+<p>→ voix , ex. Google Assistant) et la transcription  (voix → texte , ex. Whisper d&#x27;OpenAI²).</p>
+<h3 id="sub-0-2-4">L&#x27;IA prédictive et analytique</h3>
+<p>Ces modèles de prédictions prédisent une valeur numérique à partir de patterns historiques. La prévision météorologique illustre bien la puissance de cette approche : le modèle GraphCast de DeepMind, entraîné sur quatre décennies de données météorologiques, prédit désormais les températures, la trajectoire des cyclones et les événements extrêmes sur 10 jours en moins d&#x27;une minute.</p>
+<h3 id="sub-0-2-5">L&#x27;apprentissage par renforcement</h3>
+<p>Le Reinforcement Learning n&#x27;a pas de données à l&#x27;avance, le modèle apprend par essai-erreur, guidé par un système de récompense/pénalité. C&#x27;est ce principe qui a permis à AlphaGo d&#x27;apprendre le jeu de Go en s&#x27;affrontant lui-même³. 1Brandon Rohrer, “How to Convert a Picture to Numbers”, November 13 2019, https://brandonrohrer.com/images_to_numbers.html 2Wikipédia, “Whisper (système de reconnaissance vocale)” , 13 mai 2026, https://fr.wikipedia.org/wiki/Whisper_(syst%C3%A8me_de_reconnaissance_vocale) 3Wikipédia, AlphaGo&quot;, 22 mars 2026,  https://fr.wikipedia.org/wiki/AlphaGo</p>
+<h3 id="sub-0-2-6">Cas d&#x27;usages</h3>
+<p>Secteur Type d&#x27;IA Exemple Santé &amp; sciences CNN / IA prédictive Diagnostic médical assisté par imagerie, détection de cancers Santé &amp; sciences Deep learning (réseaux de neurones) Découverte de médicament, AlphaFold (DeepMind) : prédiction de structures protéiques Finance &amp; assurance IA prédictive/analytique Détection de fraude, scoring en temps réel des transactions bancaires Finance &amp; assurance Reinforcement Learning Trading, a justement dynamique de portefeuilles selon les signaux de marché Industrie &amp; logistique IA prédictive Maintenance, anticipation des pannes machines à partir de capteurs IoT Météorologie IA prédictive (deep learning) Prévision climatique, GraphCast (DeepMind) : prévision de température à 10 jours Entreprises &amp; services LLM / agents IA Automatisation, Mistral AI : ingénieurs qui « managent des agents IA »4 Créatif &amp; médias Modèles de diffusion Génération d’image, Midjourney, DALL-E pour la production visuelle</p>
+<p>4 Youtube LCP, Assemblée nationale, Arthur Mensch, audition Assemblée nationale, 12/05/2026, https://www.youtube.com/watch?v=kKWOkWv6pJM</p>
+      </article>
+
+      <!-- Navigation séquentielle bas de page -->
+      <footer class="chapter-nav-footer">
+        <div class="chapter-nav-grid">
+          
+        <a href="introduction.html" class="chapter-nav-card prev">
+          <span class="chapter-nav-direction">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Partie précédente</span>
+          </span>
+          <span class="chapter-nav-title">Introduction et problématique</span>
+          <span class="chapter-nav-time">~3 min de lecture</span>
+        </a>
+        
+          
+        <a href="partie-1.html" class="chapter-nav-card next">
+          <span class="chapter-nav-direction">
+            <span>Partie suivante</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+          <span class="chapter-nav-title">Partie I — L&#x27;IA comme levier d&#x27;augmentation de la performance</span>
+          <span class="chapter-nav-time">~43 min de lecture</span>
+        </a>
+        
+        </div>
+
+        <div class="chapter-nav-bottom-actions">
+          <a href="../index.html#sommaire" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Retour au sommaire général</span>
+          </a>
+
+          <a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf" class="btn-secondary-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Télécharger le mémoire complet (PDF)</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand">
+            <span class="brand-badge">Mémoire</span>
+            <span>Thomas ALMODOVAR</span>
+          </div>
+          <p class="footer-brand-desc">
+            Publication numérique universitaire du mémoire de Mastère Dev, Data & IA (École IPSSI - EISI, promotion 2025-2026). Ce diplôme a été réalisé en alternance au sein du service Pilotage de la performance de Crédit Agricole Sud Méditerranée.
+          </p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Accueil du site</a></li>
+            <li><a href="../index.html#presentation">Présentation</a></li>
+            <li><a href="../index.html#sommaire">Sommaire général</a></li>
+            <li><a href="../index.html#a-propos">À propos & Métadonnées</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Document</div>
+          <ul class="footer-links">
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" download="Memoire_ALMODOVAR_Thomas.pdf">Télécharger le PDF original (2,08 Mo)</a></li>
+            <li><a href="../assets/pdf/Memoire_ALMODOVAR_Thomas.pdf" target="_blank">Consulter le PDF en ligne</a></li>
+            <li><a href="glossaire.html">Glossaire des termes</a></li>
+            <li><a href="bibliographie.html">Bibliographie & Webographie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Thomas ALMODOVAR — Tous droits de reproduction et de citation réservés selon les règles universitaires.</div>
+        <div>Conception éditoriale respectant les critères d'accessibilité WCAG 2.2 AA.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/reader.js"></script>
+</body>
+</html>
