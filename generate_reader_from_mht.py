@@ -19,6 +19,17 @@ from parse_helpers import EDITORIAL_SUMMARIES
 soup = BeautifulSoup(open('scratch_cover/memoire_extracted.html', 'r', encoding='utf-8', errors='replace'), 'html.parser')
 h1s = soup.find_all('h1')
 
+SUPERSCRIPT_MAP = {'0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'}
+
+def format_citation_text(text):
+    m = re.match(r'^(\d+)\s*(.*)$', text)
+    if m:
+        digits = m.group(1)
+        rest = m.group(2)
+        super_digits = ''.join(SUPERSCRIPT_MAP[d] for d in digits)
+        return f'{super_digits} {rest}'
+    return text
+
 SECTIONS_CONFIG = [
     {
         "id": "introduction",
@@ -492,8 +503,11 @@ def parse_section(sec_id, start_h1, end_h1=None):
                 for part in parts:
                     p_c = part.strip()
                     if p_c:
-                        tag_name = "p class=\"source-citation\"" if is_source_citation(p_c) else "p"
-                        blocks.append(f'<{tag_name}>{linkify_text(p_c)}</p>')
+                        if is_source_citation(p_c):
+                            formatted_c = format_citation_text(p_c)
+                            blocks.append(f'<p class="source-citation">{linkify_text(formatted_c)}</p>')
+                        else:
+                            blocks.append(f'<p>{linkify_text(p_c)}</p>')
                 curr = curr.find_next_sibling()
                 continue
 
@@ -503,8 +517,11 @@ def parse_section(sec_id, start_h1, end_h1=None):
                 for part in parts:
                     p_c = part.strip()
                     if p_c:
-                        tag_name = "p class=\"source-citation\"" if is_source_citation(p_c) else "p"
-                        blocks.append(f'<{tag_name}>{linkify_text(p_c)}</p>')
+                        if is_source_citation(p_c):
+                            formatted_c = format_citation_text(p_c)
+                            blocks.append(f'<p class="source-citation">{linkify_text(formatted_c)}</p>')
+                        else:
+                            blocks.append(f'<p>{linkify_text(p_c)}</p>')
                 curr = curr.find_next_sibling()
                 continue
 
