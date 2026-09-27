@@ -12,4 +12,5 @@ Thumbs.db
 assets/pdf/Mémoire - ALMODOVAR Thomas.pdf
 
 # Fichiers extraits temporaires
-scratch_cover/memoire_extracted.html
+scratch/
+scratch_cover/

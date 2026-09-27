@@ -593,8 +593,14 @@
 }
 
 .reader-content li {
-  margin-bottom: 0.6em;
+  margin-bottom: 0.85em;
   padding-left: 0.3em;
+  line-height: var(--text-line-height);
+}
+
+.reader-content li strong {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 /* Tableaux avec défilement horizontal local */

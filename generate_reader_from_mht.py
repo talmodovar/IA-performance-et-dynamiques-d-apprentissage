@@ -489,7 +489,7 @@ def parse_section(sec_id, start_h1, end_h1=None):
 
             # Check for MsoListParagraph or bullet
             is_list = ('List' in ' '.join(curr.get('class', []))) or t.startswith(('· ', 'o ', '- ', '• '))
-            is_numbered_list = bool(re.match(r'^\d+[\.\)]\s+', t)) and len(t) < 400 and not is_source_citation(t)
+            is_numbered_list = bool(re.match(r'^\d+[\.\)]\s+', t)) and not is_source_citation(t)
             
             if is_list or (is_numbered_list and 'MsoList' in ' '.join(curr.get('class', []))):
                 list_type = 'ol' if is_numbered_list else 'ul'
@@ -498,6 +498,28 @@ def parse_section(sec_id, start_h1, end_h1=None):
                     current_list_type = list_type
                 
                 clean_li = re.sub(r'^(?:[·o\-•]|\d+[\.\)])\s*', '', t).strip()
+                b_in_li = curr.find('b')
+                if b_in_li:
+                    b_txt = ' '.join(b_in_li.get_text().split()).strip()
+                    if b_txt.endswith(':') and clean_li.startswith(b_txt):
+                        title_clean = b_txt
+                        desc = clean_li[len(title_clean):].strip()
+                        current_list_items.append(f"<strong>{html.escape(title_clean)}</strong><br>{linkify_text(desc)}")
+                        curr = curr.find_next_sibling()
+                        continue
+                    elif clean_li.startswith(b_txt + ' :'):
+                        title_clean = b_txt + ' :'
+                        desc = clean_li[len(title_clean):].strip()
+                        current_list_items.append(f"<strong>{html.escape(title_clean)}</strong><br>{linkify_text(desc)}")
+                        curr = curr.find_next_sibling()
+                        continue
+                    elif clean_li.startswith(b_txt + ':'):
+                        title_clean = b_txt + ':'
+                        desc = clean_li[len(title_clean):].strip()
+                        current_list_items.append(f"<strong>{html.escape(title_clean)}</strong><br>{linkify_text(desc)}")
+                        curr = curr.find_next_sibling()
+                        continue
+
                 current_list_items.append(linkify_text(clean_li))
                 curr = curr.find_next_sibling()
                 continue
