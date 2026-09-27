@@ -17,16 +17,23 @@ from parse_helpers import EDITORIAL_SUMMARIES
 
 # Load MHT extracted document
 soup = BeautifulSoup(open('scratch_cover/memoire_extracted.html', 'r', encoding='utf-8', errors='replace'), 'html.parser')
-h1s = soup.find_all('h1')
 
 SUPERSCRIPT_MAP = {'0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'}
 
+# Convert all <sup> tags to unicode superscripts directly in soup
+for sup in soup.find_all('sup'):
+    s = sup.get_text()
+    converted = ''.join(SUPERSCRIPT_MAP.get(c, c) for c in s)
+    sup.replace_with(converted)
+
+h1s = soup.find_all('h1')
+
 def format_citation_text(text):
-    m = re.match(r'^(\d+)\s*(.*)$', text)
+    m = re.match(r'^([¹²³⁴⁵⁶⁷⁸⁹⁰0-9]+)\s*(.*)$', text.strip())
     if m:
         digits = m.group(1)
         rest = m.group(2)
-        super_digits = ''.join(SUPERSCRIPT_MAP[d] for d in digits)
+        super_digits = ''.join(SUPERSCRIPT_MAP.get(d, d) for d in digits)
         return f'{super_digits} {rest}'
     return text
 

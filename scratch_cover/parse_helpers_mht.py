@@ -47,25 +47,29 @@ RE_SOURCE_SPLIT = re.compile(
     r')'
 )
 
+SUPERSCRIPT_MAP = {'0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹'}
+
 def is_source_citation(text):
     t = text.strip()
-    if re.match(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰]+', t):
-        return True
     if re.match(r'^(?:[234]D|[48]K|\d+B|\d+(?:e|ème|er|ère|nd|th|rd|st))\b', t, re.IGNORECASE):
         return False
-    if re.match(r'^[1-9]\d?\s*[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇa-z\.\-]+(?:\s+[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇa-z\.\-]+)?\s+[a-z]{1,10}\b', t):
-        if not re.search(r'\b(?:et al\.|Database|Report|Press|arXiv|interview|entretien|conférence)\b', t[:40], re.IGNORECASE) and not re.search(r'[«"“]', t[:40]):
+        
+    m_num = re.match(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰0-9]+', t)
+    if not m_num:
+        return False
+        
+    # Check for citation indicators
+    if re.search(r'https?://|www\.|arxiv\.org|youtube\.com|digital\.hec\.ca|hal\.science', t):
+        return True
+    if re.search(r'\b(?:et al\.|Database|Report|Press|éd\.|vol\.|pp?\.|arXiv|interview|entretien|conférence|webinaire|audition)\b', t, re.IGNORECASE):
+        return True
+    if re.match(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰0-9]+\s*(?:[«"“]|Wikipédia|Wikipedia|YouTube|ECMWF|NASA|OpenAI|AlphaFold|Stanford|Union|Université|University|Le Monde|Le Quotidien|Académie|Cnam|École|Classement|Prévisions|Insee|Joseph MESTRALLET|Maureen|LearnLM|George|Weixu|Evan|Hamsa|Bozena|Parker|Sejoon|Thibault|Zied|Sylvestre|Quentin|Arthur|David|Fabrice|Brandon|Le MAG|European|S\. Knerr)', t, re.IGNORECASE):
+        if re.search(r'^[¹²³⁴⁵⁶⁷⁸⁹⁰0-9]+\s*(?:Autor y voit|Fabrice Popineau documente)', t):
             return False
-    m = re.match(r'^[1-9]\d?\s*(?:[A-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇ«"“]|https?:)', t)
-    if m:
-        if re.search(r'https?://|www\.|arxiv\.org|youtube\.com|digital\.hec\.ca', t):
-            return True
-        if re.match(r'^[1-9]\d?\s*(?:[«"“]|Wikipédia|Wikipedia|YouTube|ECMWF|NASA|OpenAI|AlphaFold|Stanford|Union|Université|University|Le Monde|Le Quotidien|Académie|Cnam|École|Classement|Prévisions)', t, re.IGNORECASE):
-            return True
-        if re.search(r'[«"“]', t) and re.search(r'\b(?:19\d\d|20\d\d)\b', t):
-            return True
-        if re.search(r'\b(?:et al\.|Database|Report|Press|éd\.|vol\.|pp?\.|arXiv|interview|entretien|conférence|webinaire)\b', t, re.IGNORECASE):
-            return True
+        return True
+    if re.search(r'[«"“]', t) and re.search(r'\b(?:19\d\d|20\d\d)\b', t):
+        return True
+        
     return False
 
 def make_slug(title_text):
@@ -114,13 +118,76 @@ def clean_word_paragraph_text(p_node):
     """
     Extrait le texte d'un paragraphe Word en nettoyant les espaces multiples,
     les retours charriot internes, tout en préservant le texte des balises <span>.
+    Garantit la préservation des exposants (ex: INSEE¹) et la correction des mots coupés.
     """
     # Remplacer les <br> par des espaces
     for br in p_node.find_all('br'):
         br.replace_with(' ')
+        
+    # Remplacer les <sup> par leur équivalent unicode en exposant
+    for sup in p_node.find_all('sup'):
+        s = sup.get_text()
+        converted = ''.join(SUPERSCRIPT_MAP.get(c, c) for c in s)
+        sup.replace_with(converted)
+        
     text = p_node.get_text()
     # Nettoyage des espaces insécables et espaces multiples
     text = text.replace('\xa0', ' ').replace('\u202f', ' ')
+    
+    # Correction des affiliations auteurs dans la prévision météo
+    text = text.replace('Bouallègue1', 'Bouallègue¹').replace('Clare2', 'Clare²').replace('Chevallier1', 'Chevallier¹')
+    
+    # Nettoyage des références non exposant signalées comme "INSEE 1" ou "INSEE1" -> "INSEE¹"
+    text = re.sub(r'\bINSEE\s*1\b', 'INSEE¹', text)
+    text = re.sub(r'\bEurope\s*2\b', 'Europe²', text)
+    
+    # Nettoyage des espaces avant les chiffres en exposant (ex: "INSEE ¹" -> "INSEE¹", "Europe ²" -> "Europe²")
+    text = re.sub(r'([^\s\(\[\{«"“])\s+([⁰¹²³⁴⁵⁶⁷⁸⁹]+)', r'\1\2', text)
+    # Préserver l'espace après les conjonctions "et" ou "ou" (ex: "recensées³ et ⁴")
+    text = re.sub(r'\b(et|ou)\s*([⁰¹²³⁴⁵⁶⁷⁸⁹]+)', r'\1 \2', text)
+    
+    # Nettoyage des apostrophes avec espaces (ex: "l '", "l' ")
+    text = re.sub(r'\b([cldjsmtnCLDJSMTN])\s+[\'’]\s*', r"\1'", text)
+    text = re.sub(r'\b([cldjsmtnCLDJSMTN][\'’])\s+', r"\1", text)
+    text = re.sub(r'\b(qu|Qu)\s+[\'’]\s*', r"\1'", text)
+    text = re.sub(r'\b(qu|Qu)[\'’]\s+', r"\1'", text)
+    
+    # Nettoyage des mots coupés et tirets avec espaces
+    cut_cleanups = [
+        (r'\be\s+-\s*mail\b', 'e-mail'),
+        (r'\blui\s+-\s*même\b', 'lui-même'),
+        (r'\belle\s+-\s*même\b', 'elle-même'),
+        (r'\bmacro\s+-\s*stratégique\b', 'macro-stratégique'),
+        (r'\bauto\s+-\s*amplifie\b', 'auto-amplifie'),
+        (r'\bc\'est\s+-\s*à\s*-\s*dire\b', "c'est-à-dire"),
+        (r'\ba\s+-\s*t\s*-\s*elle\b', 'a-t-elle'),
+        (r'\ba\s+-\s*t\s*-\s*il\b', 'a-t-il'),
+        (r'\bdonnent\s+-\s*elles\b', 'donnent-elles'),
+        (r'\bpeut\s+-\s*elle\b', 'peut-elle'),
+        (r'\bquarante\s+-\s*sept\b', 'quarante-sept'),
+        (r'\bClaude\s+-\s*Louis\b', 'Claude-Louis'),
+        (r'\bXIX\s+ème\b', 'XIXème'),
+        (r'\bac\s+tivité\b', 'activité'),
+        (r'\bnotab\s+le\b', 'notable'),
+        (r'\bcontent\s+e\b', 'contente'),
+        (r'\bch\s+ange\b', 'change'),
+        (r'\bartifici\s+elle\b', 'artificielle'),
+        (r'\bsa\s+tisfaction\b', 'satisfaction'),
+        (r'\bconditi\s+onné\b', 'conditionné'),
+        (r'\btr\s+avail\b', 'travail'),
+        (r'\béqui\s+pés\b', 'équipés'),
+        (r'\batt\s+ente\b', 'attente'),
+        (r'\bindépendant\s+e\b', 'indépendante'),
+        (r'\bpré\s+caution\b', 'précaution'),
+        (r'\bse\s+s\s+travaux\b', 'ses travaux'),
+        (r'\bpreu\s+ve\b', 'preuve'),
+        (r'\bci\s+bler\b', 'cibler'),
+        (r'\bentr\s+aînement\b', 'entraînement'),
+        (r'\bquan\s+tifier\b', 'quantifier'),
+    ]
+    for pattern, repl in cut_cleanups:
+        text = re.sub(pattern, repl, text, flags=re.IGNORECASE)
+
     text = ' '.join(text.split())
     return text
 
